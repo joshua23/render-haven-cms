@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -27,12 +28,16 @@ export const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-            <Button variant="hero" size="lg">
-              开始探索
-              <ArrowRight className="ml-2" />
+            <Button variant="hero" size="lg" asChild>
+              <Link to="/articles">
+                开始探索
+                <ArrowRight className="ml-2" />
+              </Link>
             </Button>
-            <Button variant="outline" size="lg">
-              了解更多
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/about">
+                了解更多
+              </Link>
             </Button>
           </div>
         </div>
