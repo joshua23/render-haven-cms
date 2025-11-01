@@ -6,17 +6,18 @@ export const ArticlesSection = () => {
   const articles = [
     {
       id: 1,
-      title: "使用原生JavaScript构建单页应用",
-      description: "探索仅使用原生JavaScript和History API，在无框架的情况下创建单页应用的基础知识。",
-      date: "October 28, 2025",
-      category: "开发",
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=450&fit=crop"
+      title: "On the Loop：Claude Code 与 Web Skills 的统一设计哲学",
+      description: "探索 AI 开发的新范式，从 In the Loop 到 On the Loop 的转变，以及如何通过 Sub-agents 架构实现真正的自动化开发。",
+      date: "2025年1月1日",
+      category: "技术哲学",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop",
+      link: "/article/claude-code-web-skills"
     },
     {
       id: 2,
       title: "精通现代布局：CSS Grid",
       description: "深入探讨CSS Grid的强大功能，超越基础，创建复杂、响应式且可维护的网页布局。",
-      date: "October 22, 2025",
+      date: "2025年1月10日",
       category: "设计",
       image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=450&fit=crop"
     },
@@ -24,7 +25,7 @@ export const ArticlesSection = () => {
       id: 3,
       title: "深度学习直观入门",
       description: "揭开神经网络的神秘面纱。本指南提供了对深度学习是什么以及它如何工作的高层次、直观的理解。",
-      date: "October 15, 2025",
+      date: "2025年1月15日",
       category: "AI",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop"
     }
