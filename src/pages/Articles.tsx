@@ -15,6 +15,15 @@ const Articles = () => {
     },
     {
       id: 2,
+      title: "塑造AI语音助手的视觉形象",
+      description: "深入探讨语音助手UI设计的三种基础类型，从传统型到抽象型、拟人型的演化路径，以及移动端与车机端的设计差异。",
+      date: "2025年1月5日",
+      category: "UI设计",
+      image: "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800&h=450&fit=crop",
+      link: "/article/voice-assistant-ui"
+    },
+    {
+      id: 3,
       title: "精通现代布局：CSS Grid",
       description: "深入探讨CSS Grid的强大功能，超越基础，创建复杂、响应式且可维护的网页布局。",
       date: "2025年1月10日",
@@ -22,7 +31,7 @@ const Articles = () => {
       image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=450&fit=crop"
     },
     {
-      id: 3,
+      id: 4,
       title: "深度学习直观入门",
       description: "揭开神经网络的神秘面纱。本指南提供了对深度学习是什么以及它如何工作的高层次、直观的理解。",
       date: "2025年1月15日",
@@ -30,7 +39,7 @@ const Articles = () => {
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop"
     },
     {
-      id: 4,
+      id: 5,
       title: "使用原生JavaScript构建单页应用",
       description: "探索仅使用原生JavaScript和History API，在无框架的情况下创建单页应用的基础知识。",
       date: "2025年1月20日",
@@ -38,7 +47,7 @@ const Articles = () => {
       image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=450&fit=crop"
     },
     {
-      id: 5,
+      id: 6,
       title: "Web性能优化最佳实践",
       description: "掌握提升网站加载速度和运行效率的关键技术，为用户提供更流畅的体验。",
       date: "2025年1月25日",
@@ -46,7 +55,7 @@ const Articles = () => {
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop"
     },
     {
-      id: 6,
+      id: 7,
       title: "React Hooks深度解析",
       description: "全面了解React Hooks的工作原理，学习如何编写更简洁、可维护的函数组件。",
       date: "2025年1月30日",
