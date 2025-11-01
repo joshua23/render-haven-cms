@@ -71,7 +71,7 @@ const About = () => {
             </CardHeader>
             <CardContent>
               <p className="text-foreground/80 leading-relaxed text-lg">
-                渲染app（Render）是一款智能图像处理应用，对标国际领先产品Remini，结合中国市场特点，提供图像增强、老照片修复、AI写真生成、证件照制作等核心功能，并通过语音助手提供更自然的交互体验。
+                渲染app（Render）是一款智能图像处理应用，对标国际领先产品，结合中国市场特点，提供图像增强、老照片修复、AI写真生成、证件照制作等核心功能，并通过语音助手提供更自然的交互体验。
               </p>
             </CardContent>
           </Card>
