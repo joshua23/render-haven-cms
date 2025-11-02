@@ -3,6 +3,36 @@ import { Footer } from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import introApps from "@/assets/voice-assistant/intro-apps.jpg";
+import mobileSiri1 from "@/assets/voice-assistant/mobile-siri-1.png";
+import mobileSiri2 from "@/assets/voice-assistant/mobile-siri-2.png";
+import mobileCortana from "@/assets/voice-assistant/mobile-cortana.png";
+import mobileGoogle from "@/assets/voice-assistant/mobile-google.png";
+import mobileBixby from "@/assets/voice-assistant/mobile-bixby.png";
+import mobileXiaoai1 from "@/assets/voice-assistant/mobile-xiaoai-1.png";
+import mobileXiaoai2 from "@/assets/voice-assistant/mobile-xiaoai-2.png";
+import mobileVivo from "@/assets/voice-assistant/mobile-vivo.png";
+import mobileOppo from "@/assets/voice-assistant/mobile-oppo.png";
+import mobileHuawei from "@/assets/voice-assistant/mobile-huawei.png";
+import mobileMeizu from "@/assets/voice-assistant/mobile-meizu.png";
+import carYunos1 from "@/assets/voice-assistant/car-yunos-1.png";
+import carYunos2 from "@/assets/voice-assistant/car-yunos-2.png";
+import carZebra from "@/assets/voice-assistant/car-zebra.png";
+import carNio from "@/assets/voice-assistant/car-nio.png";
+import carXiaopeng from "@/assets/voice-assistant/car-xiaopeng.png";
+import carWeilai from "@/assets/voice-assistant/car-weilai.png";
+import carLingpai from "@/assets/voice-assistant/car-lingpai.png";
+import carIdeal from "@/assets/voice-assistant/car-ideal.png";
+import carChangan from "@/assets/voice-assistant/car-changan.png";
+import designTypes from "@/assets/voice-assistant/design-types.png";
+import siriEvolution from "@/assets/voice-assistant/siri-evolution.jpg";
+import lyraEvolution from "@/assets/voice-assistant/lyra-evolution.png";
+import comparisonChart from "@/assets/voice-assistant/comparison-chart.png";
+import animalLogos from "@/assets/voice-assistant/animal-logos.jpg";
+import animation1 from "@/assets/voice-assistant/animation-1.gif";
+import animation2 from "@/assets/voice-assistant/animation-2.gif";
+import animation3 from "@/assets/voice-assistant/animation-3.gif";
+import animation4 from "@/assets/voice-assistant/animation-4.gif";
 
 const VoiceAssistantUI = () => {
   return (
@@ -39,9 +69,12 @@ const VoiceAssistantUI = () => {
             
             <Card className="my-8 bg-muted/30">
               <CardContent className="p-6">
-                <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-                  <p className="text-muted-foreground">左图为夸克大眼，右上角高德地图一毛，右下建行机器人</p>
-                </div>
+                <img 
+                  src={introApps} 
+                  alt="左图为夸克大眼，右上角高德地图一毛，右下建行机器人"
+                  className="w-full rounded-lg"
+                />
+                <p className="text-sm text-muted-foreground mt-2 text-center">左图为夸克大眼，右上角高德地图一毛，右下建行机器人</p>
               </CardContent>
             </Card>
 
@@ -60,11 +93,21 @@ const VoiceAssistantUI = () => {
                 <CardTitle>手机端语音助手</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-foreground/80 leading-relaxed">
+                <p className="text-foreground/80 leading-relaxed mb-6">
                   罗列了iPhone Siri、微软小娜、Hello Google、三星Bixby、小爱同学等主流手机语音助手形象。
                 </p>
-                <div className="aspect-video bg-muted rounded-lg mt-4 flex items-center justify-center">
-                  <p className="text-muted-foreground">手机端语音助手形象展示</p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <img src={mobileSiri1} alt="iPhone Siri" className="w-full rounded-lg" />
+                  <img src={mobileSiri2} alt="iPhone Siri 动画" className="w-full rounded-lg" />
+                  <img src={mobileCortana} alt="微软小娜 Cortana" className="w-full rounded-lg" />
+                  <img src={mobileGoogle} alt="Hello Google" className="w-full rounded-lg" />
+                  <img src={mobileBixby} alt="三星 Bixby" className="w-full rounded-lg" />
+                  <img src={mobileXiaoai1} alt="小爱同学" className="w-full rounded-lg" />
+                  <img src={mobileXiaoai2} alt="小爱同学动画" className="w-full rounded-lg" />
+                  <img src={mobileVivo} alt="Vivo Jovi" className="w-full rounded-lg" />
+                  <img src={mobileOppo} alt="Oppo Breeno" className="w-full rounded-lg" />
+                  <img src={mobileHuawei} alt="华为小艺" className="w-full rounded-lg" />
+                  <img src={mobileMeizu} alt="魅族 Aicy" className="w-full rounded-lg" />
                 </div>
               </CardContent>
             </Card>
@@ -74,11 +117,25 @@ const VoiceAssistantUI = () => {
                 <CardTitle>车机端语音助手</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-foreground/80 leading-relaxed">
+                <p className="text-foreground/80 leading-relaxed mb-6">
                   列举了搭载YunOS的智能后视镜、斑马系统以及蔚来汽车等一众新势力造车品牌的语音助手形象。
                 </p>
-                <div className="aspect-video bg-muted rounded-lg mt-4 flex items-center justify-center">
-                  <p className="text-muted-foreground">车机端语音助手形象展示</p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <img src={carYunos1} alt="YunOS 智能后视镜" className="w-full rounded-lg" />
+                  <img src={carYunos2} alt="YunOS 语音助手" className="w-full rounded-lg" />
+                  <img src={carZebra} alt="斑马系统" className="w-full rounded-lg" />
+                  <img src={carNio} alt="蔚来汽车 NOMI" className="w-full rounded-lg" />
+                  <img src={carXiaopeng} alt="小鹏汽车语音助手" className="w-full rounded-lg" />
+                  <img src={carWeilai} alt="威马汽车语音助手" className="w-full rounded-lg" />
+                  <img src={carLingpai} alt="领跑汽车语音助手" className="w-full rounded-lg" />
+                  <img src={carIdeal} alt="理想汽车语音助手" className="w-full rounded-lg" />
+                  <img src={carChangan} alt="长安汽车语音助手" className="w-full rounded-lg" />
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                  <img src={animation1} alt="车机语音动画示例1" className="w-full rounded-lg" />
+                  <img src={animation2} alt="车机语音动画示例2" className="w-full rounded-lg" />
+                  <img src={animation3} alt="车机语音动画示例3" className="w-full rounded-lg" />
+                  <img src={animation4} alt="车机语音动画示例4" className="w-full rounded-lg" />
                 </div>
               </CardContent>
             </Card>
@@ -141,16 +198,22 @@ const VoiceAssistantUI = () => {
 
             <Card className="my-8 bg-primary/5 border-primary/20">
               <CardContent className="p-6">
-                <p className="text-foreground/80 leading-relaxed">
+                <p className="text-foreground/80 leading-relaxed mb-6">
                   <strong>演化路径：</strong>结合语音形象的历史版本来看，能得出三种风格类型之间常见的演化路径——由传统型到抽象型/拟人型。
                 </p>
-                <div className="grid md:grid-cols-2 gap-4 mt-6">
-                  <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-                    <p className="text-muted-foreground text-sm">Siri 2011～2016年演化过程</p>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <img src={siriEvolution} alt="Siri 2011～2016年演化过程" className="w-full rounded-lg" />
+                    <p className="text-sm text-muted-foreground mt-2 text-center">Siri 2011～2016年演化过程</p>
                   </div>
-                  <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-                    <p className="text-muted-foreground text-sm">思必驰Lyra 2015～2019演化</p>
+                  <div>
+                    <img src={lyraEvolution} alt="思必驰Lyra 2015～2019演化" className="w-full rounded-lg" />
+                    <p className="text-sm text-muted-foreground mt-2 text-center">思必驰Lyra (天琴) 2015～2019演化</p>
                   </div>
+                </div>
+                <div className="mt-6">
+                  <img src={designTypes} alt="三种基础设计类型对比" className="w-full rounded-lg" />
+                  <p className="text-sm text-muted-foreground mt-2 text-center">传统型、抽象型、拟人型设计对比</p>
                 </div>
               </CardContent>
             </Card>
@@ -265,6 +328,10 @@ const VoiceAssistantUI = () => {
                       在体现功能入口和工作状态的辨识度上却相对较差，较高的学习成本和"科技的冰冷"也会削弱语音形象的亲和力。
                     </p>
                   </div>
+                  <div className="mt-4">
+                    <img src={comparisonChart} alt="设计类型优劣势对比图" className="w-full rounded-lg" />
+                    <p className="text-sm text-muted-foreground mt-2 text-center">三种设计类型的五维评判分析</p>
+                  </div>
                 </CardContent>
               </Card>
 
@@ -284,6 +351,10 @@ const VoiceAssistantUI = () => {
                     <p className="text-foreground/70">
                       在设计潮流方面，拟人型设计更容易让人感觉复古。AI属性的体现程度跟拟人形象本身的设计水准强相关。过分具象的拟人型设计会限定用户对其它维度人设的预期。
                     </p>
+                  </div>
+                  <div className="mt-4">
+                    <img src={animalLogos} alt="动物形象logo对比" className="w-full rounded-lg" />
+                    <p className="text-sm text-muted-foreground mt-2 text-center">各家互联网公司的动物形象logo，动物园都快凑齐了</p>
                   </div>
                 </CardContent>
               </Card>
