@@ -24,6 +24,15 @@ const Articles = () => {
     },
     {
       id: 3,
+      title: "OpusClip 增长实战：每个阶段最重要的那一件事",
+      description: "OpusClip 增长产品负责人的实战经验分享，涵盖冷启动、转化、留存、数据洞察等关键环节的增长策略。",
+      date: "2025年1月15日",
+      category: "增长实战",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
+      link: "/article/opusclip-growth"
+    },
+    {
+      id: 4,
       title: "精通现代布局：CSS Grid",
       description: "深入探讨CSS Grid的强大功能，超越基础，创建复杂、响应式且可维护的网页布局。",
       date: "2025年1月10日",
@@ -31,34 +40,34 @@ const Articles = () => {
       image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=450&fit=crop"
     },
     {
-      id: 4,
+      id: 5,
       title: "深度学习直观入门",
       description: "揭开神经网络的神秘面纱。本指南提供了对深度学习是什么以及它如何工作的高层次、直观的理解。",
-      date: "2025年1月15日",
+      date: "2025年1月20日",
       category: "AI",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop"
     },
     {
-      id: 5,
+      id: 6,
       title: "使用原生JavaScript构建单页应用",
       description: "探索仅使用原生JavaScript和History API，在无框架的情况下创建单页应用的基础知识。",
-      date: "2025年1月20日",
+      date: "2025年1月25日",
       category: "开发",
       image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=450&fit=crop"
     },
     {
-      id: 6,
+      id: 7,
       title: "Web性能优化最佳实践",
       description: "掌握提升网站加载速度和运行效率的关键技术，为用户提供更流畅的体验。",
-      date: "2025年1月25日",
+      date: "2025年1月30日",
       category: "性能",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop"
     },
     {
-      id: 7,
+      id: 8,
       title: "React Hooks深度解析",
       description: "全面了解React Hooks的工作原理，学习如何编写更简洁、可维护的函数组件。",
-      date: "2025年1月30日",
+      date: "2025年2月5日",
       category: "React",
       image: "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&h=450&fit=crop"
     }
