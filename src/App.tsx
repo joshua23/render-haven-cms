@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Articles from "./pages/Articles";
 import ArticleDetail from "./pages/ArticleDetail";
 import VoiceAssistantUI from "./pages/VoiceAssistantUI";
+import OpusClipGrowth from "./pages/OpusClipGrowth";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/articles" element={<Articles />} />
           <Route path="/article/claude-code-web-skills" element={<ArticleDetail />} />
           <Route path="/article/voice-assistant-ui" element={<VoiceAssistantUI />} />
+          <Route path="/article/opusclip-growth" element={<OpusClipGrowth />} />
           <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

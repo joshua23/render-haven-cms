@@ -24,11 +24,12 @@ export const ArticlesSection = () => {
     },
     {
       id: 3,
-      title: "精通现代布局：CSS Grid",
-      description: "深入探讨CSS Grid的强大功能，超越基础，创建复杂、响应式且可维护的网页布局。",
-      date: "2025年1月10日",
-      category: "设计",
-      image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=450&fit=crop"
+      title: "OpusClip 增长实战：每个阶段最重要的那一件事",
+      description: "OpusClip 增长产品负责人的实战经验分享，涵盖冷启动、转化、留存、数据洞察等关键环节的增长策略。",
+      date: "2025年1月15日",
+      category: "增长实战",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
+      link: "/article/opusclip-growth"
     }
   ];
 
