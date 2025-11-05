@@ -30,6 +30,15 @@ export const ArticlesSection = () => {
       category: "增长实战",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
       link: "/article/opusclip-growth"
+    },
+    {
+      id: 4,
+      title: "AI的简单效用：别当数学懦夫",
+      description: "克服对AI的恐惧，从实用主义出发，像聊天一样使用AI工具，把握计算时代的简单效用。",
+      date: "2025年1月20日",
+      category: "AI应用",
+      image: "https://images.unsplash.com/photo-1677756119517-756a188d2d94?w=800&h=450&fit=crop",
+      link: "/article/ai-utility"
     }
   ];
 
