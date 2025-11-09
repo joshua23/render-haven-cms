@@ -5,34 +5,37 @@ import { Link } from "react-router-dom";
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/30">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.1),transparent_50%)]" />
+      {/* Animated background with mesh gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-background">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,hsl(var(--accent)/0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,hsl(var(--primary)/0.08),transparent_40%)]" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto space-y-8">
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight max-w-5xl mx-auto">
+            <span className="text-foreground">移动优先的</span>{" "}
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
-              铸就数字卓越
+              AI 智能图像处理应用
             </span>
-            <br />
-            <span className="text-foreground">一行代码，一个世界</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-            关于设计、开发和技术未来的精选见解合集
+          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            专注于快速、便捷的移动端图片优化和创作
+            <br />
+            成为最受欢迎的移动端 AI 图像处理工具，让每个人都能轻松创作高质量照片
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-            <Button variant="hero" size="lg" asChild>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-12">
+            <Button variant="hero" size="lg" className="text-lg px-8 py-6" asChild>
               <Link to="/articles">
                 开始探索
-                <ArrowRight className="ml-2" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" className="text-lg px-8 py-6" asChild>
               <Link to="/about">
                 了解更多
               </Link>
