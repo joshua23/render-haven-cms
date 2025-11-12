@@ -11,6 +11,7 @@ import OpusClipGrowth from "./pages/OpusClipGrowth";
 import AIUtility from "./pages/AIUtility";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import ImageGenerator from "./pages/ImageGenerator";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/article/opusclip-growth" element={<OpusClipGrowth />} />
           <Route path="/article/ai-utility" element={<AIUtility />} />
           <Route path="/about" element={<About />} />
+          <Route path="/image-generator" element={<ImageGenerator />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
