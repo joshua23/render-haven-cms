@@ -13,7 +13,7 @@ http://localhost:8080/image-generator
 **请求**:
 ```bash
 curl -X 'POST' \
-  'http://8.130.180.72:18080/api/oss/upload' \
+  'https://xr-webapi.xrpic.com/api/oss/upload' \
   -H 'accept: */*' \
   -H 'Content-Type: multipart/form-data' \
   -F 'file=@image.jpg'
@@ -37,7 +37,7 @@ curl -X 'POST' \
 **请求**:
 ```bash
 curl -X 'POST' \
-  'http://8.130.180.72:18080/api/CompositeImage/generate-and-beautify' \
+  'https://xr-webapi.xrpic.com/api/CompositeImage/generate-and-beautify' \
   -H 'accept: */*' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -92,12 +92,12 @@ curl -X 'POST' \
 - UI: shadcn/ui + Tailwind CSS
 
 ### 后端 API
-- 地址: http://8.130.180.72:18080
-- Swagger 文档: http://8.130.180.72:18080/swagger/index.html
+- 地址: https://xr-webapi.xrpic.com
+- Swagger 文档: https://xr-webapi.xrpic.com/swagger/index.html
 
 ## 注意事项
 
-1. **确保后端服务运行**: 访问 http://8.130.180.72:18080 确认 API 服务正常
+1. **确保后端服务运行**: 访问 https://xr-webapi.xrpic.com 确认 API 服务正常
 2. **CORS 配置**: 如果遇到跨域问题，需要在后端配置允许 localhost:8080
 3. **文件大小限制**: 单个文件不超过 10MB
 4. **多图片数量**: 建议 2-5 张图片以获得最佳合成效果
