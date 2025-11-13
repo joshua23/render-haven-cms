@@ -13,6 +13,7 @@ import AIUtility from "./pages/AIUtility";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import ImageGenerator from "./pages/ImageGenerator";
+import TextToSpeech from "./pages/TextToSpeech";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/article/ai-utility" element={<AIUtility />} />
           <Route path="/about" element={<About />} />
           <Route path="/image-generator" element={<ImageGenerator />} />
+          <Route path="/text-to-speech" element={<TextToSpeech />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
