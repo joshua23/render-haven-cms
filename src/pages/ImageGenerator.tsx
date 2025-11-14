@@ -9,7 +9,11 @@ import { Loader2, Upload, Image as ImageIcon } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
+<<<<<<< HEAD
 const API_BASE_URL = 'https://xr-webapi.xrpic.com';
+=======
+const API_BASE_URL = 'http://localhost:5282';
+>>>>>>> zhangnan/20251110
 
 interface UploadResponse {
   success: boolean;
