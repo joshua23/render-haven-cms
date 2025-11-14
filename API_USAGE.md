@@ -19,15 +19,15 @@ http://localhost:8080/image-generator
 **请求**:
 ```bash
 curl -X 'POST' \
-<<<<<<< HEAD
-  'https://xr-webapi.xrpic.com/api/oss/upload' \
-=======
-  'http://localhost:5282/api/oss/upload' \
->>>>>>> zhangnan/20251110
+  '{API_BASE_URL}/api/oss/upload' \
   -H 'accept: */*' \
   -H 'Content-Type: multipart/form-data' \
   -F 'file=@image.jpg'
 ```
+
+**注意**: `{API_BASE_URL}` 会根据环境自动切换：
+- 开发环境: `http://localhost:5282`
+- 生产环境: `https://xr-webapi.xrpic.com`
 
 **响应示例**:
 ```json
@@ -47,11 +47,7 @@ curl -X 'POST' \
 **请求**:
 ```bash
 curl -X 'POST' \
-<<<<<<< HEAD
-  'https://xr-webapi.xrpic.com/api/CompositeImage/generate-and-beautify' \
-=======
-  'http://localhost:5282/api/CompositeImage/generate-and-beautify' \
->>>>>>> zhangnan/20251110
+  '{API_BASE_URL}/api/CompositeImage/generate-and-beautify' \
   -H 'accept: */*' \
   -H 'Content-Type: application/json' \
   -d '{
