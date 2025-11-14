@@ -42,11 +42,12 @@ const Articles = () => {
     },
     {
       id: 5,
-      title: "精通现代布局：CSS Grid",
-      description: "深入探讨CSS Grid的强大功能，超越基础，创建复杂、响应式且可维护的网页布局。",
-      date: "2025年1月10日",
-      category: "设计",
-      image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=450&fit=crop"
+      title: "国产大模型接入 Claude Code 实战指南",
+      description: "详细讲解如何将豆包等国产大模型接入 Claude Code，实现多模型切换使用，性价比高且操作简单。",
+      date: "2025年1月25日",
+      category: "技术实战",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop",
+      link: "/article/claude-code-doubao"
     },
     {
       id: 6,
@@ -58,14 +59,6 @@ const Articles = () => {
     },
     {
       id: 7,
-      title: "使用原生JavaScript构建单页应用",
-      description: "探索仅使用原生JavaScript和History API，在无框架的情况下创建单页应用的基础知识。",
-      date: "2025年1月25日",
-      category: "开发",
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=450&fit=crop"
-    },
-    {
-      id: 8,
       title: "Web性能优化最佳实践",
       description: "掌握提升网站加载速度和运行效率的关键技术，为用户提供更流畅的体验。",
       date: "2025年1月30日",
@@ -73,7 +66,7 @@ const Articles = () => {
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop"
     },
     {
-      id: 9,
+      id: 8,
       title: "React Hooks深度解析",
       description: "全面了解React Hooks的工作原理，学习如何编写更简洁、可维护的函数组件。",
       date: "2025年2月5日",
