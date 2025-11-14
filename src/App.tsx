@@ -9,6 +9,7 @@ import ArticleDetail from "./pages/ArticleDetail";
 import VoiceAssistantUI from "./pages/VoiceAssistantUI";
 import OpusClipGrowth from "./pages/OpusClipGrowth";
 import InfoDimensionReduction from "./pages/InfoDimensionReduction";
+import ClaudeCodeDoubao from "./pages/ClaudeCodeDoubao";
 import AIUtility from "./pages/AIUtility";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/article/voice-assistant-ui" element={<VoiceAssistantUI />} />
           <Route path="/article/opusclip-growth" element={<OpusClipGrowth />} />
           <Route path="/article/info-dimension-reduction" element={<InfoDimensionReduction />} />
+          <Route path="/article/claude-code-doubao" element={<ClaudeCodeDoubao />} />
           <Route path="/article/ai-utility" element={<AIUtility />} />
           <Route path="/about" element={<About />} />
           <Route path="/image-generator" element={<ImageGenerator />} />
