@@ -106,21 +106,23 @@ curl -X 'POST' \
 - UI: shadcn/ui + Tailwind CSS
 
 ### 后端 API
-<<<<<<< HEAD
-- 地址: https://xr-webapi.xrpic.com
-- Swagger 文档: https://xr-webapi.xrpic.com/swagger/index.html
+- **开发环境**: http://localhost:5282
+- **生产环境**: https://xr-webapi.xrpic.com
+- Swagger 文档: 
+  - 开发：http://localhost:5282/swagger/index.html
+  - 生产：https://xr-webapi.xrpic.com/swagger/index.html
+
+### API 地址自动切换
+项目已配置环境变量，API 地址会根据运行环境自动切换：
+- 运行 `npm run dev`：使用 http://localhost:5282（开发环境）
+- 运行 `npm run build`：使用 https://xr-webapi.xrpic.com（生产环境）
+- 运行 `npm run preview`：使用 https://xr-webapi.xrpic.com（预览生产构建）
 
 ## 注意事项
 
-1. **确保后端服务运行**: 访问 https://xr-webapi.xrpic.com 确认 API 服务正常
-=======
-- 地址: http://localhost:5282
-- Swagger 文档: http://localhost:5282/swagger/index.html
-
-## 注意事项
-
-1. **确保后端服务运行**: 访问 http://localhost:5282 确认 API 服务正常
->>>>>>> zhangnan/20251110
+1. **确保后端服务运行**: 
+   - 开发环境：访问 http://localhost:5282 确认 API 服务正常
+   - 生产环境：访问 https://xr-webapi.xrpic.com 确认 API 服务正常
 2. **CORS 配置**: 如果遇到跨域问题，需要在后端配置允许 localhost:8080
 3. **文件大小限制**: 单个文件不超过 10MB
 4. **多图片数量**: 建议 2-5 张图片以获得最佳合成效果

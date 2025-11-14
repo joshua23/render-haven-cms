@@ -9,11 +9,10 @@ import { Loader2, Upload, Image as ImageIcon } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
-<<<<<<< HEAD
-const API_BASE_URL = 'https://xr-webapi.xrpic.com';
-=======
-const API_BASE_URL = 'http://localhost:5282';
->>>>>>> zhangnan/20251110
+// 开发环境使用本地地址，其他环境使用生产地址
+const API_BASE_URL = import.meta.env.DEV 
+  ? 'http://localhost:5282' 
+  : 'https://xr-webapi.xrpic.com';
 
 interface UploadResponse {
   success: boolean;

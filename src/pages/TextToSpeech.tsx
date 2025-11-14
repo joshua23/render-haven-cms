@@ -9,7 +9,10 @@ import { Loader2, Volume2, Download, Play, Pause } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
-const API_BASE_URL = 'http://localhost:5282';
+// 开发环境使用本地地址，其他环境使用生产地址
+const API_BASE_URL = import.meta.env.DEV 
+  ? 'http://localhost:5282' 
+  : 'https://xr-webapi.xrpic.com';
 
 interface Voice {
   id: string;
