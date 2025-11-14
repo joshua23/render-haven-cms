@@ -12,9 +12,19 @@ export const Footer = () => {
             </span>
           </div>
           
-          <p className="text-muted-foreground text-sm">
-            © 2025 渲染AI. 保留所有权利。
-          </p>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-muted-foreground text-sm">
+              © 2025 渲染AI. 保留所有权利。
+            </p>
+            <a 
+              href="https://beian.miit.gov.cn/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-muted-foreground text-sm hover:text-primary transition-colors duration-300"
+            >
+              沪ICP备2025149173号-2A
+            </a>
+          </div>
           
           <div className="flex gap-6">
             <a 
