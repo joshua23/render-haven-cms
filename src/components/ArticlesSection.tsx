@@ -33,12 +33,12 @@ export const ArticlesSection = () => {
     },
     {
       id: 4,
-      title: "AI的简单效用：别当数学懦夫",
-      description: "克服对AI的恐惧，从实用主义出发，像聊天一样使用AI工具，把握计算时代的简单效用。",
-      date: "2025年1月20日",
-      category: "AI应用",
-      image: "https://images.unsplash.com/photo-1677756119517-756a188d2d94?w=800&h=450&fit=crop",
-      link: "/article/ai-utility"
+      title: "如何在小红书涨粉的底层逻辑和套路？",
+      description: "从平台底层逻辑到内容策略，深度解析小红书涨粉的7大核心认知和实战技巧。",
+      date: "2025年1月30日",
+      category: "增长实战",
+      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=450&fit=crop",
+      link: "/article/xiaohongshu-growth"
     }
   ];
 

@@ -49,6 +49,15 @@ const Articles = () => {
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop",
       link: "/article/claude-code-doubao"
     },
+    {
+      id: 6,
+      title: "如何在小红书涨粉的底层逻辑和套路？",
+      description: "从平台底层逻辑到内容策略，深度解析小红书涨粉的7大核心认知和实战技巧。",
+      date: "2025年1月30日",
+      category: "增长实战",
+      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=450&fit=crop",
+      link: "/article/xiaohongshu-growth"
+    },
   ];
 
   return (
