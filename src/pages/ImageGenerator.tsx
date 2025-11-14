@@ -9,7 +9,7 @@ import { Loader2, Upload, Image as ImageIcon } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
-const API_BASE_URL = 'http://8.130.180.72:18080';
+const API_BASE_URL = 'http://localhost:5282';
 
 interface UploadResponse {
   success: boolean;

@@ -59,6 +59,21 @@ const TextToSpeech = () => {
     }
   }, [selectedModel]);
 
+  // 清理 blob URL，防止内存泄漏（仅在组件卸载时执行）
+  useEffect(() => {
+    return () => {
+      // 组件卸载时清理
+      if (audioUrl && audioUrl.startsWith('blob:')) {
+        URL.revokeObjectURL(audioUrl);
+      }
+      if (audioElement) {
+        audioElement.pause();
+        audioElement.src = '';
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // 空依赖数组，只在组件卸载时清理
+
   const fetchModels = async () => {
     setIsLoadingModels(true);
     try {
@@ -131,6 +146,15 @@ const TextToSpeech = () => {
       return;
     }
 
+    if (text.length > 100) {
+      toast({
+        title: '文字过长',
+        description: `当前 ${text.length} 字，单次转换最多支持 100 字`,
+        variant: 'destructive',
+      });
+      return;
+    }
+
     if (!selectedModel) {
       toast({
         title: '请选择模型',
@@ -150,6 +174,19 @@ const TextToSpeech = () => {
     }
 
     setIsConverting(true);
+    
+    // 停止并清理旧的音频
+    if (audioElement) {
+      audioElement.pause();
+      audioElement.src = '';
+      setAudioElement(null);
+    }
+    setIsPlaying(false);
+    
+    // 释放旧的 blob URL
+    if (audioUrl && audioUrl.startsWith('blob:')) {
+      URL.revokeObjectURL(audioUrl);
+    }
     setAudioUrl('');
 
     try {
@@ -168,50 +205,100 @@ const TextToSpeech = () => {
         }),
       });
 
-      const result: ConvertResponse = await response.json();
-
-      if (result.success && result.data?.audioUrl) {
-        setAudioUrl(result.data.audioUrl);
-        toast({
-          title: '转换成功',
-          description: '语音已生成，可以播放或下载',
-        });
-      } else {
-        toast({
-          title: '转换失败',
-          description: result.message || '语音生成失败，请重试',
-          variant: 'destructive',
-        });
+      if (!response.ok) {
+        throw new Error(`转换失败: ${response.statusText}`);
       }
-    } catch (error) {
+
+      // 接口直接返回 mp3 音频文件
+      const audioBlob = await response.blob();
+      
+      // 创建本地 URL
+      const localAudioUrl = URL.createObjectURL(audioBlob);
+      setAudioUrl(localAudioUrl);
+      
       toast({
-        title: '请求失败',
-        description: '无法连接到服务器，请检查网络连接',
+        title: '转换成功',
+        description: '语音已生成，可以播放或下载',
+      });
+    } catch (error) {
+      console.error('Failed to convert text to speech:', error);
+      toast({
+        title: '转换失败',
+        description: error instanceof Error ? error.message : '无法连接到服务器，请检查网络连接',
         variant: 'destructive',
       });
-      console.error('Failed to convert text to speech:', error);
     } finally {
       setIsConverting(false);
     }
   };
 
-  const handlePlayPause = () => {
-    if (!audioUrl) return;
+  const handlePlayPause = async () => {
+    if (!audioUrl) {
+      console.warn('No audio URL available');
+      return;
+    }
 
-    if (!audioElement) {
-      const audio = new Audio(audioUrl);
-      audio.onended = () => setIsPlaying(false);
-      setAudioElement(audio);
-      audio.play();
-      setIsPlaying(true);
-    } else {
-      if (isPlaying) {
-        audioElement.pause();
-        setIsPlaying(false);
-      } else {
-        audioElement.play();
+    try {
+      if (!audioElement) {
+        console.log('Creating new audio element with URL:', audioUrl);
+        const audio = new Audio();
+        
+        audio.onended = () => {
+          console.log('Audio playback ended');
+          setIsPlaying(false);
+        };
+        
+        audio.onerror = (e) => {
+          console.error('Audio element error:', e);
+          setIsPlaying(false);
+          toast({
+            title: '播放失败',
+            description: '音频文件无法播放，请重试',
+            variant: 'destructive',
+          });
+        };
+        
+        // 先设置 src，再设置到 state
+        audio.src = audioUrl;
+        setAudioElement(audio);
+        
+        // 尝试播放
+        await audio.play();
         setIsPlaying(true);
+        console.log('Audio playback started');
+      } else {
+        if (isPlaying) {
+          console.log('Pausing audio');
+          audioElement.pause();
+          setIsPlaying(false);
+        } else {
+          console.log('Resuming audio playback');
+          await audioElement.play();
+          setIsPlaying(true);
+        }
       }
+    } catch (error) {
+      console.error('Failed to play audio:', error);
+      setIsPlaying(false);
+      
+      // 提供更详细的错误信息
+      let errorMessage = '无法播放音频';
+      if (error instanceof Error) {
+        errorMessage = error.message;
+        
+        // 针对常见错误提供具体建议
+        if (error.name === 'NotAllowedError') {
+          errorMessage = '浏览器阻止了自动播放，请点击播放按钮';
+        } else if (error.name === 'NotSupportedError') {
+          errorMessage = '浏览器不支持该音频格式';
+        }
+      }
+      
+      toast({
+        title: '播放失败',
+        description: errorMessage,
+        variant: 'destructive',
+      });
     }
   };
 
@@ -244,7 +331,7 @@ const TextToSpeech = () => {
             <Card>
               <CardHeader>
                 <CardTitle>输入文本</CardTitle>
-                <CardDescription>请输入要转换成语音的文字内容</CardDescription>
+                <CardDescription>请输入要转换成语音的文字内容（最多100字）</CardDescription>
               </CardHeader>
               <CardContent>
                 <Textarea
@@ -254,8 +341,8 @@ const TextToSpeech = () => {
                   rows={6}
                   className="resize-none"
                 />
-                <div className="mt-2 text-sm text-muted-foreground text-right">
-                  {text.length} 字符
+                <div className={`mt-2 text-sm text-right ${text.length > 100 ? 'text-red-500 font-medium' : 'text-muted-foreground'}`}>
+                  {text.length} / 100 字
                 </div>
               </CardContent>
             </Card>
@@ -396,7 +483,7 @@ const TextToSpeech = () => {
               </CardHeader>
               <CardContent>
                 <ol className="list-decimal list-inside space-y-2 text-sm text-muted-foreground">
-                  <li>在文本框中输入要转换成语音的文字内容</li>
+                  <li>在文本框中输入要转换成语音的文字内容（最多100字）</li>
                   <li>选择合适的语音模型（不同模型有不同的语音特点）</li>
                   <li>选择喜欢的音色（男声、女声等不同风格）</li>
                   <li>点击"转换为语音"按钮开始生成</li>
