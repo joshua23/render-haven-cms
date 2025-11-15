@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import componentsImage from "@/assets/ai-agent-components.png";
 
 const AIAgent = () => {
+  const [isImageOpen, setIsImageOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -47,8 +51,19 @@ const AIAgent = () => {
           <img 
             src={componentsImage} 
             alt="AI Agent四大核心组件" 
-            className="w-full rounded-lg my-8 shadow-lg"
+            className="w-full rounded-lg my-8 shadow-lg cursor-pointer hover:opacity-90 transition-opacity"
+            onClick={() => setIsImageOpen(true)}
           />
+
+          <Dialog open={isImageOpen} onOpenChange={setIsImageOpen}>
+            <DialogContent className="max-w-6xl w-full p-0 bg-transparent border-none">
+              <img 
+                src={componentsImage} 
+                alt="AI Agent四大核心组件" 
+                className="w-full h-auto rounded-lg"
+              />
+            </DialogContent>
+          </Dialog>
 
           <h2 className="text-3xl font-bold mt-12 mb-6 text-foreground">组件一:Data(数据) - Agent的知识与记忆</h2>
 
