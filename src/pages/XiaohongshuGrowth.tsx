@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import growthLogicImage from "@/assets/xiaohongshu-growth-logic.jpeg";
 
 const XiaohongshuGrowth = () => {
   return (
@@ -47,6 +48,12 @@ const XiaohongshuGrowth = () => {
             <p className="text-xl leading-relaxed text-muted-foreground">
               它本质是'社区'，不是单纯的内容分发平台
             </p>
+
+            <img 
+              src={growthLogicImage} 
+              alt="小红书涨粉的6大核心策略" 
+              className="w-full rounded-lg my-8 shadow-lg"
+            />
 
             <div className="space-y-4">
               <div className="p-6 bg-card/50 rounded-lg border border-border/40">
