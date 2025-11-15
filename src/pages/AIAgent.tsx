@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import componentsImage from "@/assets/ai-agent-components.jpeg";
+import componentsImage from "@/assets/ai-agent-components.png";
 
 const AIAgent = () => {
   return (
