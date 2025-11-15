@@ -58,6 +58,15 @@ const Articles = () => {
       image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=450&fit=crop",
       link: "/article/xiaohongshu-growth"
     },
+    {
+      id: 7,
+      title: "揭秘AI Agent:四大核心组件实战解析",
+      description: "从Data、Model、Tools到Workflow，深度解析AI Agent的四大核心组件如何协同作战，让你真正理解和驾驭智能工作者。",
+      date: "2025年2月5日",
+      category: "技术实战",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop",
+      link: "/article/ai-agent"
+    },
   ];
 
   return (
