@@ -21,6 +21,7 @@ import ImageGenerator from "./pages/ImageGenerator";
 import TextToSpeech from "./pages/TextToSpeech";
 import XuanranLayout from "./components/XuanranLayout";
 import XuanranHome from "./pages/XuanranHome";
+import IntegratedHome from "./pages/IntegratedHome";
 import CreateCharacter from "./pages/CreateCharacter";
 import XuanranImageGenerator from "./pages/XuanranImageGenerator";
 import Roleplay from "./pages/Roleplay";
@@ -39,7 +40,7 @@ const App = () => (
           <Routes>
             {/* All routes use XuanranLayout as the main layout */}
             <Route element={<XuanranLayout />}>
-              <Route index element={<XuanranHome />} />
+              <Route index element={<IntegratedHome />} />
 
               {/* AI Companion Features */}
               <Route path="/create" element={<CreateCharacter />} />
