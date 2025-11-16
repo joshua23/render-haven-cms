@@ -13,6 +13,7 @@ import ClaudeCodeDoubao from "./pages/ClaudeCodeDoubao";
 import XiaohongshuGrowth from "./pages/XiaohongshuGrowth";
 import AIUtility from "./pages/AIUtility";
 import AIAgent from "./pages/AIAgent";
+import AICompanionFeatures from "./pages/AICompanionFeatures";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import ImageGenerator from "./pages/ImageGenerator";
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/article/xiaohongshu-growth" element={<XiaohongshuGrowth />} />
           <Route path="/article/ai-utility" element={<AIUtility />} />
           <Route path="/article/ai-agent" element={<AIAgent />} />
+          <Route path="/article/ai-companion-features" element={<AICompanionFeatures />} />
           <Route path="/about" element={<About />} />
           <Route path="/image-generator" element={<ImageGenerator />} />
           <Route path="/text-to-speech" element={<TextToSpeech />} />

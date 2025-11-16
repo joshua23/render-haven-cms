@@ -39,6 +39,15 @@ export const ArticlesSection = () => {
       category: "增长实战",
       image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=450&fit=crop",
       link: "/article/xiaohongshu-growth"
+    },
+    {
+      id: 5,
+      title: "AI伴侣的7大必备功能特性",
+      description: "深度解析AI伴侣产品的核心功能，从个性化定制到情感支持，从对话能力到生产力工具，帮助你选择最适合的AI伴侣。",
+      date: "2025年2月16日",
+      category: "AI应用",
+      image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=450&fit=crop",
+      link: "/article/ai-companion-features"
     }
   ];
 
