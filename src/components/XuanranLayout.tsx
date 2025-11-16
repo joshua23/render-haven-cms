@@ -15,25 +15,84 @@ export default function XuanranLayout() {
             <span className="text-white text-2xl font-black tracking-tight">渲染AI</span>
           </Link>
           <div className="flex items-center gap-8">
-            <Link to="/create" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+            <Link
+              to="/"
+              className={`${
+                location.pathname === '/'
+                  ? 'text-neon-green'
+                  : 'text-neutral-400 hover:text-neon-green'
+              } transition-colors font-medium tracking-wide`}
+            >
+              首页
+            </Link>
+            <Link
+              to="/create"
+              className={`${
+                location.pathname === '/create'
+                  ? 'text-neon-green'
+                  : 'text-neutral-400 hover:text-neon-green'
+              } transition-colors font-medium tracking-wide`}
+            >
               创建角色
             </Link>
-            <Link to="/generate" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+            <Link
+              to="/generate"
+              className={`${
+                location.pathname === '/generate'
+                  ? 'text-neon-green'
+                  : 'text-neutral-400 hover:text-neon-green'
+              } transition-colors font-medium tracking-wide`}
+            >
               图像生成
             </Link>
-            <Link to="/roleplay" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+            <Link
+              to="/roleplay"
+              className={`${
+                location.pathname === '/roleplay'
+                  ? 'text-neon-green'
+                  : 'text-neutral-400 hover:text-neon-green'
+              } transition-colors font-medium tracking-wide`}
+            >
               角色扮演
             </Link>
-            <Link to="/chat" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+            <Link
+              to="/chat"
+              className={`${
+                location.pathname === '/chat'
+                  ? 'text-neon-green'
+                  : 'text-neutral-400 hover:text-neon-green'
+              } transition-colors font-medium tracking-wide`}
+            >
               消息
             </Link>
-            <Link to="/articles" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+            <Link
+              to="/articles"
+              className={`${
+                location.pathname === '/articles'
+                  ? 'text-neon-green'
+                  : 'text-neutral-400 hover:text-neon-green'
+              } transition-colors font-medium tracking-wide`}
+            >
               博客
             </Link>
-            <Link to="/about" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+            <Link
+              to="/about"
+              className={`${
+                location.pathname === '/about'
+                  ? 'text-neon-green'
+                  : 'text-neutral-400 hover:text-neon-green'
+              } transition-colors font-medium tracking-wide`}
+            >
               关于
             </Link>
-            <Link to="/pricing" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+            <Link
+              to="/pricing"
+              className={`${
+                location.pathname === '/pricing'
+                  ? 'text-neon-green'
+                  : 'text-neutral-400 hover:text-neon-green'
+              } transition-colors font-medium tracking-wide`}
+            >
               价格
             </Link>
 
