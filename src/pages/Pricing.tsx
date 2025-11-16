@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Check, Zap, Crown, Sparkles, Star } from 'lucide-react';
 
 interface PricingTier {
@@ -12,6 +13,10 @@ interface PricingTier {
 }
 
 export default function Pricing() {
+  useEffect(() => {
+    document.title = '价格方案 - 渲染AI';
+  }, []);
+
   const tiers: PricingTier[] = [
     {
       name: '免费版',

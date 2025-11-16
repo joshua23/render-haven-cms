@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Drama, Heart, Star, Flame, Moon, Coffee, Plane, BookOpen } from 'lucide-react';
 import { useNSFW } from '../contexts/NSFWContext';
 
@@ -15,6 +15,10 @@ interface Scenario {
 export default function Roleplay() {
   const { isNSFW } = useNSFW();
   const [selectedCategory, setSelectedCategory] = useState('all');
+
+  useEffect(() => {
+    document.title = '角色扮演 - 渲染AI';
+  }, []);
 
   const categories = [
     { id: 'all', name: '全部', icon: <Star className="w-4 h-4" /> },
