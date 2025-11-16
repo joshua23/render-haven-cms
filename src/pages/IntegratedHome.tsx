@@ -23,40 +23,60 @@ export default function IntegratedHome() {
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 mb-10 px-5 py-2 border border-neon-green/20 bg-neon-green/5">
-            <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse shadow-neon"></div>
-            <span className="text-neon-green text-sm font-bold tracking-widest uppercase">先进AI技术驱动</span>
-          </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* 左侧文字内容 */}
+            <div>
+              <div className="inline-flex items-center gap-2 mb-10 px-5 py-2 border border-neon-green/20 bg-neon-green/5">
+                <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse shadow-neon"></div>
+                <span className="text-neon-green text-sm font-bold tracking-widest uppercase">先进AI技术驱动</span>
+              </div>
 
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-none tracking-tighter">
-            <span className="block mb-4">移动优先的</span>
-            <span className="text-neon-green drop-shadow-neon">
-              AI 智能处理平台
-            </span>
-          </h1>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-none tracking-tighter">
+                <span className="block mb-4">移动优先的</span>
+                <span className="text-neon-green drop-shadow-neon">
+                  AI 智能处理平台
+                </span>
+              </h1>
 
-          <p className="text-xl md:text-2xl text-neutral-400 mb-16 max-w-3xl leading-relaxed font-light">
-            创造你的完美AI伴侣，具备先进的对话和图像生成能力。<br />
-            同时提供专业的图像增强、老照片修复、AI写真生成等核心功能。
-          </p>
+              <p className="text-xl md:text-2xl text-neutral-400 mb-16 leading-relaxed font-light">
+                创造你的完美AI伴侣，具备先进的对话和图像生成能力。<br />
+                同时提供专业的图像增强、老照片修复、AI写真生成等核心功能。
+              </p>
 
-          <div className="flex flex-wrap items-center gap-6">
-            <Link to="/create">
-              <button className="px-12 py-5 bg-neon-green hover:brightness-110 text-black font-bold text-lg tracking-wide transition-all shadow-neon-lg">
-                开始创作AI伴侣
-              </button>
-            </Link>
-            <Link to="/articles">
-              <Button variant="outline" size="lg" className="text-lg px-8 py-5 border-2 border-neutral-800 hover:border-neon-green text-white font-bold tracking-wide transition-all hover:shadow-neon bg-transparent">
-                浏览博客文章
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link to="/about">
-              <button className="px-12 py-5 border-2 border-neutral-800 hover:border-neon-green text-white font-bold text-lg tracking-wide transition-all hover:shadow-neon">
-                了解更多
-              </button>
-            </Link>
+              <div className="flex flex-wrap items-center gap-6">
+                <Link to="/create">
+                  <button className="px-12 py-5 bg-neon-green hover:brightness-110 text-black font-bold text-lg tracking-wide transition-all shadow-neon-lg">
+                    开始创作AI伴侣
+                  </button>
+                </Link>
+                <Link to="/articles">
+                  <Button variant="outline" size="lg" className="text-lg px-8 py-5 border-2 border-neutral-800 hover:border-neon-green text-white font-bold tracking-wide transition-all hover:shadow-neon bg-transparent">
+                    浏览博客文章
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link to="/about">
+                  <button className="px-12 py-5 border-2 border-neutral-800 hover:border-neon-green text-white font-bold text-lg tracking-wide transition-all hover:shadow-neon">
+                    了解更多
+                  </button>
+                </Link>
+              </div>
+            </div>
+
+            {/* 右侧图片 */}
+            <div className="relative hidden lg:block">
+              <div className="relative rounded-2xl overflow-hidden border-2 border-neon-green/20 shadow-[0_0_50px_rgba(0,255,65,0.2)]">
+                <img
+                  src="/Grok Companion.webp"
+                  alt="AI伴侣"
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+              </div>
+              {/* 装饰性光效 */}
+              <div className="absolute -bottom-4 -right-4 w-72 h-72 bg-neon-green/20 rounded-full blur-3xl"></div>
+              <div className="absolute -top-4 -left-4 w-48 h-48 bg-neon-green/10 rounded-full blur-2xl"></div>
+            </div>
           </div>
         </div>
       </section>
