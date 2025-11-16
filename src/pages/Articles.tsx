@@ -1,5 +1,3 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { ArticleCard } from "@/components/ArticleCard";
 
 const Articles = () => {
@@ -79,17 +77,15 @@ const Articles = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main className="container mx-auto px-6 pt-32 pb-20">
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-foreground">所有</span>
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">博客</span>
+    <div className="min-h-screen bg-black pt-32 pb-20">
+      <main className="container mx-auto px-6">
+        <div className="mb-16">
+          <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter">
+            <span className="text-white">所有</span>
+            <span className="text-neon-green drop-shadow-neon">博客</span>
           </h1>
-          <p className="text-xl text-muted-foreground">
-            探索设计、开发和技术未来的精选见解
+          <p className="text-xl text-neutral-400 font-light">
+            探索AI、设计、开发和技术未来的精选见解
           </p>
         </div>
 
@@ -99,8 +95,6 @@ const Articles = () => {
           ))}
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

@@ -37,33 +37,37 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/articles" element={<Articles />} />
-            <Route path="/article/claude-code-web-skills" element={<ArticleDetail />} />
-            <Route path="/article/voice-assistant-ui" element={<VoiceAssistantUI />} />
-            <Route path="/article/opusclip-growth" element={<OpusClipGrowth />} />
-            <Route path="/article/info-dimension-reduction" element={<InfoDimensionReduction />} />
-            <Route path="/article/claude-code-doubao" element={<ClaudeCodeDoubao />} />
-            <Route path="/article/xiaohongshu-growth" element={<XiaohongshuGrowth />} />
-            <Route path="/article/ai-utility" element={<AIUtility />} />
-            <Route path="/article/ai-agent" element={<AIAgent />} />
-            <Route path="/article/ai-companion-features" element={<AICompanionFeatures />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/image-generator" element={<ImageGenerator />} />
-            <Route path="/text-to-speech" element={<TextToSpeech />} />
-
-            {/* Xuanran AI Companion Routes */}
-            <Route path="/xuanran" element={<XuanranLayout />}>
+            {/* All routes use XuanranLayout as the main layout */}
+            <Route element={<XuanranLayout />}>
               <Route index element={<XuanranHome />} />
-              <Route path="create" element={<CreateCharacter />} />
-              <Route path="generate" element={<XuanranImageGenerator />} />
-              <Route path="roleplay" element={<Roleplay />} />
-              <Route path="chat" element={<ChatPage />} />
-              <Route path="pricing" element={<Pricing />} />
-            </Route>
 
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+              {/* AI Companion Features */}
+              <Route path="/create" element={<CreateCharacter />} />
+              <Route path="/generate" element={<XuanranImageGenerator />} />
+              <Route path="/roleplay" element={<Roleplay />} />
+              <Route path="/chat" element={<ChatPage />} />
+              <Route path="/pricing" element={<Pricing />} />
+
+              {/* Blog/Articles */}
+              <Route path="/articles" element={<Articles />} />
+              <Route path="/article/claude-code-web-skills" element={<ArticleDetail />} />
+              <Route path="/article/voice-assistant-ui" element={<VoiceAssistantUI />} />
+              <Route path="/article/opusclip-growth" element={<OpusClipGrowth />} />
+              <Route path="/article/info-dimension-reduction" element={<InfoDimensionReduction />} />
+              <Route path="/article/claude-code-doubao" element={<ClaudeCodeDoubao />} />
+              <Route path="/article/xiaohongshu-growth" element={<XiaohongshuGrowth />} />
+              <Route path="/article/ai-utility" element={<AIUtility />} />
+              <Route path="/article/ai-agent" element={<AIAgent />} />
+              <Route path="/article/ai-companion-features" element={<AICompanionFeatures />} />
+
+              {/* Other Pages */}
+              <Route path="/about" element={<About />} />
+              <Route path="/image-generator" element={<ImageGenerator />} />
+              <Route path="/text-to-speech" element={<TextToSpeech />} />
+
+              {/* Catch-all route */}
+              <Route path="*" element={<NotFound />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
