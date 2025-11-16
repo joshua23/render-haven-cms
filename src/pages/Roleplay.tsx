@@ -134,7 +134,7 @@ export default function Roleplay() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div className="container mx-auto px-4 py-12 max-w-7xl">
+      <div className="container mx-auto px-4 pt-32 pb-12 max-w-7xl">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-black text-white mb-4">
             {isNSFW ? '成人角色扮演' : '角色扮演 & 情景探索'}

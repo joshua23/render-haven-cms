@@ -91,7 +91,7 @@ export default function ChatPage() {
   const selectedCharacter = characters.find(c => c.id === selectedChat);
 
   return (
-    <div className="h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex">
+    <div className="h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex pt-20">
       <div className="w-80 bg-slate-800/50 backdrop-blur-sm border-r border-slate-700/50 flex flex-col">
         <div className="p-6 border-b border-slate-700/50">
           <h2 className="text-2xl font-bold text-white mb-2">消息</h2>
