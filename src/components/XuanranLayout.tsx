@@ -3,31 +3,37 @@ import { useNSFW } from '../contexts/NSFWContext';
 
 export default function XuanranLayout() {
   const location = useLocation();
-  const isHomePage = location.pathname === '/xuanran';
+  const isHomePage = location.pathname === '/';
   const { isNSFW, toggleNSFW } = useNSFW();
 
   return (
     <div className="min-h-screen bg-black">
       <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-sm border-b border-neutral-900 z-50">
         <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between">
-          <Link to="/xuanran" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <img src="/启动页.png" alt="渲染AI" className="w-10 h-10 rounded-lg drop-shadow-neon" />
             <span className="text-white text-2xl font-black tracking-tight">渲染AI</span>
           </Link>
-          <div className="flex items-center gap-12">
-            <Link to="/xuanran/create" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+          <div className="flex items-center gap-8">
+            <Link to="/create" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
               创建角色
             </Link>
-            <Link to="/xuanran/generate" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+            <Link to="/generate" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
               图像生成
             </Link>
-            <Link to="/xuanran/roleplay" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+            <Link to="/roleplay" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
               角色扮演
             </Link>
-            <Link to="/xuanran/chat" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+            <Link to="/chat" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
               消息
             </Link>
-            <Link to="/xuanran/pricing" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+            <Link to="/articles" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+              博客
+            </Link>
+            <Link to="/about" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
+              关于
+            </Link>
+            <Link to="/pricing" className="text-neutral-400 hover:text-neon-green transition-colors font-medium tracking-wide">
               价格
             </Link>
 
@@ -42,7 +48,7 @@ export default function XuanranLayout() {
               {isNSFW ? 'NSFW' : 'SFW'}
             </button>
 
-            <Link to="/xuanran/create">
+            <Link to="/create">
               <button className="px-8 py-3 bg-neon-green hover:brightness-110 text-black font-bold tracking-wide transition-all shadow-neon">
                 立即创建
               </button>
@@ -72,8 +78,8 @@ export default function XuanranLayout() {
               <div>
                 <h4 className="text-white font-black mb-6 tracking-wide uppercase text-sm">产品</h4>
                 <ul className="space-y-3 text-neutral-500 text-sm font-light">
-                  <li><Link to="/xuanran/create" className="hover:text-neon-green transition-colors">功能特性</Link></li>
-                  <li><Link to="/xuanran/pricing" className="hover:text-neon-green transition-colors">价格</Link></li>
+                  <li><Link to="/create" className="hover:text-neon-green transition-colors">功能特性</Link></li>
+                  <li><Link to="/pricing" className="hover:text-neon-green transition-colors">价格</Link></li>
                   <li><a href="#" className="hover:text-neon-green transition-colors">常见问题</a></li>
                 </ul>
               </div>
@@ -81,8 +87,8 @@ export default function XuanranLayout() {
               <div>
                 <h4 className="text-white font-black mb-6 tracking-wide uppercase text-sm">公司</h4>
                 <ul className="space-y-3 text-neutral-500 text-sm font-light">
-                  <li><a href="#" className="hover:text-neon-green transition-colors">关于我们</a></li>
-                  <li><a href="#" className="hover:text-neon-green transition-colors">博客</a></li>
+                  <li><Link to="/about" className="hover:text-neon-green transition-colors">关于我们</Link></li>
+                  <li><Link to="/articles" className="hover:text-neon-green transition-colors">博客</Link></li>
                   <li><a href="#" className="hover:text-neon-green transition-colors">联系我们</a></li>
                 </ul>
               </div>

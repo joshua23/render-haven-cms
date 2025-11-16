@@ -32,7 +32,7 @@ export default function XuanranHome() {
             )}
           </p>
           <div className="flex items-center gap-6">
-            <Link to="/xuanran/create">
+            <Link to="/create">
               <button className="px-12 py-5 bg-neon-green hover:brightness-110 text-black font-bold text-lg tracking-wide transition-all shadow-neon-lg">
                 开始创作
               </button>
@@ -58,7 +58,7 @@ export default function XuanranHome() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-900">
-            <Link to="/xuanran/create" className="bg-black p-12 hover:bg-neutral-950 transition-colors group">
+            <Link to="/create" className="bg-black p-12 hover:bg-neutral-950 transition-colors group">
               <div className="mb-8">
                 <Wand2 className="w-10 h-10 text-neon-green group-hover:scale-110 transition-transform drop-shadow-neon" strokeWidth={2} />
               </div>
@@ -68,7 +68,7 @@ export default function XuanranHome() {
               </p>
             </Link>
 
-            <Link to="/xuanran/chat" className="bg-black p-12 hover:bg-neutral-950 transition-colors group">
+            <Link to="/chat" className="bg-black p-12 hover:bg-neutral-950 transition-colors group">
               <div className="mb-8">
                 <MessageCircle className="w-10 h-10 text-neon-green group-hover:scale-110 transition-transform drop-shadow-neon" strokeWidth={2} />
               </div>
@@ -78,7 +78,7 @@ export default function XuanranHome() {
               </p>
             </Link>
 
-            <Link to="/xuanran/generate" className="bg-black p-12 hover:bg-neutral-950 transition-colors group">
+            <Link to="/generate" className="bg-black p-12 hover:bg-neutral-950 transition-colors group">
               <div className="mb-8">
                 <Image className="w-10 h-10 text-neon-green group-hover:scale-110 transition-transform drop-shadow-neon" strokeWidth={2} />
               </div>
@@ -88,7 +88,7 @@ export default function XuanranHome() {
               </p>
             </Link>
 
-            <Link to="/xuanran/roleplay" className="bg-black p-12 hover:bg-neutral-950 transition-colors group">
+            <Link to="/roleplay" className="bg-black p-12 hover:bg-neutral-950 transition-colors group">
               <div className="mb-8">
                 <Sparkles className="w-10 h-10 text-neon-green group-hover:scale-110 transition-transform drop-shadow-neon" strokeWidth={2} />
               </div>
@@ -175,7 +175,7 @@ export default function XuanranHome() {
           <p className="text-xl text-neutral-400 mb-12 font-light">
             加入数千名用户,开始创造精彩的AI伴侣
           </p>
-          <Link to="/xuanran/create">
+          <Link to="/create">
             <button className="px-16 py-6 bg-neon-green hover:brightness-110 text-black font-bold text-xl tracking-wide transition-all shadow-neon-lg">
               免费开始
             </button>
