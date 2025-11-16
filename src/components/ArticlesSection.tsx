@@ -57,7 +57,7 @@ export const ArticlesSection = () => {
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-4xl font-bold">
             <span className="text-foreground">最新</span>
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">文章</span>
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">博客</span>
           </h2>
           
           <Button variant="ghost" className="group">

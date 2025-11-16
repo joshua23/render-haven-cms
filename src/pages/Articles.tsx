@@ -77,7 +77,7 @@ const Articles = () => {
         <div className="mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-foreground">所有</span>
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">文章</span>
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">博客</span>
           </h1>
           <p className="text-xl text-muted-foreground">
             探索设计、开发和技术未来的精选见解
