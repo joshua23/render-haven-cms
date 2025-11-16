@@ -9,7 +9,7 @@ export default function IntegratedHome() {
   const { isNSFW } = useNSFW();
 
   useEffect(() => {
-    document.title = '渲染AI - AI伴侣创作与智能图像处理平台';
+    document.title = '首页 - 渲染AI';
   }, []);
 
   return (
