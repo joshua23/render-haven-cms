@@ -126,7 +126,7 @@ export default function XuanranLayout() {
             <div className="grid md:grid-cols-4 gap-16 mb-16">
               <div>
                 <div className="flex items-center gap-3 mb-6">
-                  <img src="/启动页.png" alt="渲染AI" className="w-8 h-8 rounded-lg drop-shadow-neon" />
+                  <img src="/启动页.png" alt="渲染AI" className="w-10 h-10 rounded-lg drop-shadow-neon" />
                   <span className="text-white text-xl font-black tracking-tight">渲染AI</span>
                 </div>
                 <p className="text-neutral-500 text-sm leading-relaxed font-light">
