@@ -54,7 +54,7 @@ export default function ChatPage() {
     },
     {
       id: '2',
-      name: '艾米',
+      name: '小染',
       avatar: '👱‍♀️',
       status: 'online',
       lastMessage: '晚安,做个好梦',
