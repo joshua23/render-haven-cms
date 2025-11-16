@@ -26,7 +26,7 @@ const FloatingWindow = () => {
               <X className="w-4 h-4" />
             </button>
             <p className="text-sm text-gray-700 pr-6">
-              欢迎来到 Render Haven! 👋
+              欢迎来到渲染AI! 👋
               <br />
               有什么可以帮助您的吗？
             </p>
@@ -71,7 +71,7 @@ const FloatingWindow = () => {
                 </div>
                 <div className="bg-white rounded-lg rounded-tl-none p-3 shadow-sm">
                   <p className="text-sm text-gray-800">
-                    您好！我是 Render Haven 的 AI 助手。
+                    您好！我是渲染AI的 AI 助手。
                     <br />
                     <br />
                     我可以帮您：
