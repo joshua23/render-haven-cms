@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useNSFW } from '../contexts/NSFWContext';
 import { ArticlesSection } from "@/components/ArticlesSection";
 import { Button } from "@/components/ui/button";
+import FloatingWindow from "@/components/FloatingWindow";
 
 export default function IntegratedHome() {
   const { isNSFW } = useNSFW();
@@ -258,6 +259,9 @@ export default function IntegratedHome() {
           </div>
         </div>
       </section>
+
+      {/* 浮窗组件 */}
+      <FloatingWindow />
     </div>
   );
 }
