@@ -58,7 +58,7 @@ export default function CreateCharacter() {
               ] : [
                 { type: 'female' as const, label: '女性', img: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400' },
                 { type: 'male' as const, label: '男性', img: 'https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=400' },
-                { type: 'anime' as const, label: '动漫风格', img: 'https://images.pexels.com/photos/5012006/pexels-photo-5012006.jpeg?auto=compress&cs=tinysrgb&w=400' }
+                { type: 'anime' as const, label: '动漫风格', img: '/Grok Companion.webp' }
               ]).map((item) => (
                 <button
                   key={item.type}
