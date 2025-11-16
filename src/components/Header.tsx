@@ -24,11 +24,11 @@ export const Header = () => {
             >
               首页
             </Link>
-            <Link 
-              to="/articles" 
+            <Link
+              to="/articles"
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
-              文章
+              博客
             </Link>
             <Link 
               to="/about" 
