@@ -158,37 +158,6 @@ export default function IntegratedHome() {
         </div>
       </section>
 
-      {/* Blog Articles Section - 整合原博客的文章展示 */}
-      <section className="py-32 px-8 border-t border-neutral-900">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16 text-center">
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6 tracking-tighter">
-              最新<span className="text-neon-green drop-shadow-neon">博客文章</span>
-            </h2>
-            <p className="text-xl text-neutral-400 font-light">
-              探索AI、设计、开发和技术未来的精选见解
-            </p>
-          </div>
-
-          {/* 使用原博客的 ArticlesSection 组件，但应用黑色主题 */}
-          <div className="articles-dark-theme">
-            <ArticlesSection />
-          </div>
-
-          <div className="mt-16 text-center">
-            <Link to="/articles">
-              <Button
-                size="lg"
-                className="px-12 py-5 bg-transparent border-2 border-neon-green/30 hover:border-neon-green text-neon-green font-bold text-lg tracking-wide transition-all hover:shadow-neon"
-              >
-                查看所有文章
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* AI Showcase Section */}
       <section id="showcase" className="py-32 px-8 border-t border-neutral-900">
         <div className="max-w-7xl mx-auto">
@@ -255,6 +224,37 @@ export default function IntegratedHome() {
               <button className="px-16 py-6 border-2 border-neon-green/30 hover:border-neon-green text-neon-green font-bold text-xl tracking-wide transition-all hover:shadow-neon">
                 阅读文章
               </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Articles Section - 整合原博客的文章展示 */}
+      <section className="py-32 px-8 border-t border-neutral-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 text-center">
+            <h2 className="text-5xl md:text-6xl font-black text-white mb-6 tracking-tighter">
+              最新<span className="text-neon-green drop-shadow-neon">博客文章</span>
+            </h2>
+            <p className="text-xl text-neutral-400 font-light">
+              探索AI、设计、开发和技术未来的精选见解
+            </p>
+          </div>
+
+          {/* 使用原博客的 ArticlesSection 组件，但应用黑色主题 */}
+          <div className="articles-dark-theme">
+            <ArticlesSection />
+          </div>
+
+          <div className="mt-16 text-center">
+            <Link to="/articles">
+              <Button
+                size="lg"
+                className="px-12 py-5 bg-transparent border-2 border-neon-green/30 hover:border-neon-green text-neon-green font-bold text-lg tracking-wide transition-all hover:shadow-neon"
+              >
+                查看所有文章
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
             </Link>
           </div>
         </div>
