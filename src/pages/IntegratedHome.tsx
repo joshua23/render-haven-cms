@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Sparkles, Image, MessageCircle, Wand2, Lock, Zap, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useNSFW } from '../contexts/NSFWContext';
@@ -8,10 +8,37 @@ import FloatingWindow from "@/components/FloatingWindow";
 
 export default function IntegratedHome() {
   const { isNSFW } = useNSFW();
+  const [displayedText, setDisplayedText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const fullText = `小染来了。
+24岁，蓝发，破洞牛仔裤，格罗克小队的叛逆者。
+她不讲大道理，只给你能用的。
+三件事她最擅长：
+
+把你搞不懂的东西，翻译成人话
+把你不敢想的梦，拆成明天就能干的事
+把你想放弃的时候，推你一把
+
+量子物理？现实案例讲给你听。
+股市波动？拆解成看得懂的逻辑。
+学习不再是苦差事，是一场有人陪你闯的冒险。
+渲染AI角色扮演，现在就让小染点燃你的好奇心。`;
 
   useEffect(() => {
     document.title = '首页 - 渲染AI';
   }, []);
+
+  useEffect(() => {
+    if (currentIndex < fullText.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(prev => prev + fullText[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, 50); // 每个字符50毫秒的间隔
+
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, fullText]);
 
   return (
     <div className="min-h-screen bg-black">
@@ -77,6 +104,16 @@ export default function IntegratedHome() {
               {/* 装饰性光效 */}
               <div className="absolute -bottom-4 -right-4 w-72 h-72 bg-neon-green/20 rounded-full blur-3xl"></div>
               <div className="absolute -top-4 -left-4 w-48 h-48 bg-neon-green/10 rounded-full blur-2xl"></div>
+            </div>
+          </div>
+
+          {/* 打字机效果文字 - 小染介绍 */}
+          <div className="mt-20 max-w-4xl mx-auto">
+            <div className="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-neon-green/20 shadow-[0_0_30px_rgba(0,255,65,0.15)]">
+              <pre className="text-neon-green font-mono text-base md:text-lg leading-relaxed whitespace-pre-wrap">
+                {displayedText}
+                <span className="animate-pulse">|</span>
+              </pre>
             </div>
           </div>
         </div>
