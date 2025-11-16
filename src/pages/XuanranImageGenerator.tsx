@@ -15,7 +15,7 @@ export default function XuanranImageGenerator() {
 
   const characters = [
     { id: '1', name: '小美', avatar: '👩' },
-    { id: '2', name: '艾米', avatar: '👱‍♀️' },
+    { id: '2', name: '小染', avatar: '👱‍♀️' },
     { id: '3', name: '莉莉', avatar: '👩‍🦰' },
   ];
 
