@@ -1,73 +1,384 @@
-# Welcome to your Lovable project
+# 渲染AI - AI伴侣创作平台
 
-## Project info
+<div align="center">
 
-**URL**: https://lovable.dev/projects/fd5bdc9c-27e8-43ab-be67-b0dfdd2fb85a
+![渲染AI](./public/启动页.png)
 
-## How can I edit this code?
+**创造你的完美AI伴侣，具备先进的对话和图像生成能力**
 
-There are several ways of editing your application.
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![React](https://img.shields.io/badge/React-18.3.1-61dafb.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178c6.svg)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38bdf8.svg)](https://tailwindcss.com/)
 
-**Use Lovable**
+</div>
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/fd5bdc9c-27e8-43ab-be67-b0dfdd2fb85a) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📖 项目简介
 
-**Use your preferred IDE**
+渲染AI是一个整合了AI伴侣创作和技术博客的综合平台。以黑色主题和霓虹绿配色为特色，为用户提供：
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- 🎨 **AI角色创作** - 全面定制AI伴侣的外观、性格和背景故事
+- 💬 **智能对话** - 基于先进AI模型的自然流畅对话
+- 🖼️ **图像生成** - AI驱动的个性化图像创作
+- 🎭 **角色扮演** - 沉浸式的互动场景体验
+- 📝 **技术博客** - AI、设计、开发领域的精选文章
+- ℹ️ **关于页面** - 平台介绍和团队信息
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## ✨ 主要功能
 
-Follow these steps:
+### AI伴侣功能
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+#### 1. 创建角色 (`/create`)
+- 选择角色类型（女性/男性/动漫风格）
+- 自定义姓名、年龄、种族、职业
+- 设定性格特点、爱好兴趣
+- 定义关系类型和背景故事
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+#### 2. 图像生成 (`/generate`)
+- 选择预设角色
+- 多种风格选择（写实/动漫/艺术/奇幻）
+- 文字描述生成图像
+- 查看生成历史
 
-# Step 3: Install the necessary dependencies.
-npm i
+#### 3. 角色扮演 (`/roleplay`)
+- 浪漫、冒险、奇幻、日常等多种场景
+- NSFW/SFW 内容切换
+- 热门场景推荐
+- 自定义场景创建
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+#### 4. 聊天对话 (`/chat`)
+- 实时AI对话交互
+- 多角色管理
+- 关系统计追踪
+- 语音和视频通话（高级功能）
+
+### 内容功能
+
+#### 5. 博客模块 (`/articles`)
+- AI技术文章
+- 设计与开发经验分享
+- 增长和产品策略
+- 分类和搜索功能
+
+#### 6. 关于页面 (`/about`)
+- 平台介绍
+- 团队信息
+- 联系方式
+
+#### 7. 定价方案 (`/pricing`)
+- 免费版、高级版、尊享版
+- 功能对比
+- 积分系统说明
+- 常见问题解答
+
+### 特色功能
+
+- 🔞 **NSFW 控制** - 一键切换内容模式
+- 🎨 **霓虹主题** - 独特的黑色背景 + 霓虹绿配色
+- 📱 **响应式设计** - 完美适配各种设备
+- ⚡ **流畅交互** - 优雅的动画和过渡效果
+
+## 🛠️ 技术栈
+
+### 前端框架
+- **React 18.3.1** - 用户界面构建
+- **TypeScript 5.8.3** - 类型安全
+- **Vite 5.4.19** - 快速构建工具
+
+### UI 组件库
+- **Radix UI** - 无障碍组件基础
+- **shadcn/ui** - 可定制组件系统
+- **Tailwind CSS 3.4.17** - 原子化CSS框架
+- **Lucide React** - 图标库
+
+### 路由与状态管理
+- **React Router DOM 6.30.1** - 客户端路由
+- **TanStack Query 5.83.0** - 服务端状态管理
+- **React Context** - NSFW状态管理
+
+### 后端服务
+- **Supabase** - 数据库和认证（已集成）
+
+### 开发工具
+- **ESLint** - 代码质量
+- **PostCSS & Autoprefixer** - CSS处理
+- **SWC** - 快速编译
+
+## 📁 项目结构
+
+```
+render-haven-cms/
+├── public/                      # 静态资源
+│   ├── 启动页.png              # Logo
+│   ├── Grok Ani.png            # AI角色图片
+│   └── ...
+├── src/
+│   ├── components/             # 组件目录
+│   │   ├── ui/                # shadcn UI组件
+│   │   ├── XuanranLayout.tsx  # 主布局组件
+│   │   ├── ArticleCard.tsx    # 博客卡片组件
+│   │   └── ...
+│   ├── contexts/              # Context状态管理
+│   │   └── NSFWContext.tsx    # NSFW内容控制
+│   ├── pages/                 # 页面组件
+│   │   ├── XuanranHome.tsx    # 首页
+│   │   ├── CreateCharacter.tsx # 创建角色
+│   │   ├── XuanranImageGenerator.tsx # 图像生成
+│   │   ├── Roleplay.tsx       # 角色扮演
+│   │   ├── ChatPage.tsx       # 聊天页面
+│   │   ├── Pricing.tsx        # 定价方案
+│   │   ├── Articles.tsx       # 博客列表
+│   │   ├── About.tsx          # 关于页面
+│   │   └── ...                # 其他文章页面
+│   ├── integrations/          # 第三方集成
+│   │   └── supabase/         # Supabase配置
+│   ├── lib/                   # 工具函数
+│   ├── App.tsx               # 应用入口
+│   └── main.tsx              # React入口
+├── tailwind.config.ts        # Tailwind配置
+├── vite.config.ts           # Vite配置
+└── package.json             # 依赖配置
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 快速开始
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 环境要求
 
-**Use GitHub Codespaces**
+- Node.js >= 18.0.0
+- npm >= 9.0.0 或 bun >= 1.0.0
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 安装步骤
 
-## What technologies are used for this project?
+1. **克隆仓库**
+```bash
+git clone https://github.com/joshua23/render-haven-cms.git
+cd render-haven-cms
+```
 
-This project is built with:
+2. **安装依赖**
+```bash
+npm install
+# 或使用 bun
+bun install
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+3. **配置环境变量**
+```bash
+cp .env.example .env
+# 编辑 .env 文件，填入必要的配置
+```
 
-## How can I deploy this project?
+4. **启动开发服务器**
+```bash
+npm run dev
+# 或使用 bun
+bun dev
+```
 
-Simply open [Lovable](https://lovable.dev/projects/fd5bdc9c-27e8-43ab-be67-b0dfdd2fb85a) and click on Share -> Publish.
+5. **打开浏览器访问**
+```
+http://localhost:5173
+```
 
-## Can I connect a custom domain to my Lovable project?
+### 构建生产版本
 
-Yes, you can!
+```bash
+npm run build
+# 或
+bun run build
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+生产文件将输出到 `dist/` 目录。
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### 预览生产构建
+
+```bash
+npm run preview
+# 或
+bun run preview
+```
+
+## 🗺️ 路由结构
+
+| 路径 | 页面 | 功能描述 |
+|------|------|----------|
+| `/` | XuanranHome | 渲染AI首页，展示平台功能 |
+| `/create` | CreateCharacter | 创建和定制AI角色 |
+| `/generate` | XuanranImageGenerator | AI图像生成工具 |
+| `/roleplay` | Roleplay | 角色扮演场景选择 |
+| `/chat` | ChatPage | 与AI角色聊天对话 |
+| `/pricing` | Pricing | 定价方案和功能对比 |
+| `/articles` | Articles | 博客文章列表 |
+| `/article/*` | ArticleDetail | 博客文章详情页 |
+| `/about` | About | 关于平台和团队 |
+| `/image-generator` | ImageGenerator | 另一个图像生成工具 |
+| `/text-to-speech` | TextToSpeech | 文字转语音功能 |
+
+## 🎨 设计系统
+
+### 颜色方案
+
+```css
+/* 主色调 */
+--bg-black: #000000;              /* 背景黑色 */
+--neon-green: #00ff41;            /* 霓虹绿 */
+--neutral-400: rgb(163 163 163);  /* 次要文字 */
+--neutral-900: rgb(23 23 23);     /* 边框分隔 */
+
+/* 阴影效果 */
+--shadow-neon: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 20px rgba(0, 255, 65, 0.3);
+--shadow-neon-lg: 0 0 20px rgba(0, 255, 65, 0.6), 0 0 40px rgba(0, 255, 65, 0.4);
+```
+
+### 组件样式
+
+- **卡片**: `bg-slate-800/50` 半透明背景
+- **边框**: `border-slate-700/50`
+- **悬停效果**: `hover:border-neon-green/50`
+- **文字**: 白色主文字 + 中性灰次要文字
+- **强调**: 霓虹绿
+
+## 📦 主要依赖
+
+### 生产依赖
+```json
+{
+  "@radix-ui/*": "各种无障碍UI组件",
+  "@supabase/supabase-js": "^2.78.0",
+  "@tanstack/react-query": "^5.83.0",
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1",
+  "react-router-dom": "^6.30.1",
+  "lucide-react": "^0.462.0",
+  "tailwindcss": "^3.4.17"
+}
+```
+
+### 开发依赖
+```json
+{
+  "@vitejs/plugin-react-swc": "^4.2.1",
+  "typescript": "^5.8.3",
+  "eslint": "^9.32.0",
+  "autoprefixer": "^10.4.21"
+}
+```
+
+## 🔧 开发指南
+
+### 添加新页面
+
+1. 在 `src/pages/` 创建新页面组件
+2. 在 `src/App.tsx` 添加路由配置
+3. 在 `XuanranLayout.tsx` 添加导航链接（如需要）
+
+### 添加新组件
+
+1. UI组件放在 `src/components/ui/`
+2. 业务组件放在 `src/components/`
+3. 使用 TypeScript 定义组件Props类型
+
+### 样式规范
+
+- 使用 Tailwind CSS 工具类
+- 遵循黑色主题 + 霓虹绿配色
+- 响应式设计：mobile-first 方法
+- 动画：使用 `transition-all duration-300`
+
+## 🌐 部署
+
+### Vercel 部署
+
+```bash
+npm install -g vercel
+vercel
+```
+
+### Netlify 部署
+
+```bash
+npm run build
+# 上传 dist/ 目录到 Netlify
+```
+
+### Docker 部署
+
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+EXPOSE 5173
+CMD ["npm", "run", "preview"]
+```
+
+## 📄 环境变量
+
+创建 `.env` 文件：
+
+```env
+# Supabase 配置
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# 开发模式
+VITE_DEV_MODE=development
+
+# 生产模式
+VITE_PROD_MODE=production
+```
+
+## 🤝 贡献指南
+
+欢迎贡献！请遵循以下步骤：
+
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 开启 Pull Request
+
+### 代码规范
+
+- 遵循 ESLint 配置
+- 使用 TypeScript 严格模式
+- 组件命名：PascalCase
+- 文件命名：PascalCase for components, camelCase for utilities
+
+## 📝 更新日志
+
+### v2.0.0 (2025-01-16)
+- ✨ 整合 xuanranweb 项目，形成统一平台
+- 🎨 统一黑色主题 + 霓虹绿配色
+- 📝 博客作为功能模块整合
+- 🔄 路由结构重构，所有功能平级
+- 🎭 添加 NSFW 内容控制
+- 💬 完整的AI伴侣功能套件
+
+### v1.0.0 (2025-01-01)
+- 🎉 初始版本发布
+- 📝 博客内容管理系统
+- 📄 关于页面
+
+## 📧 联系方式
+
+- **项目地址**: https://github.com/joshua23/render-haven-cms
+- **问题反馈**: https://github.com/joshua23/render-haven-cms/issues
+
+## 📜 许可证
+
+本项目采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
+
+---
+
+<div align="center">
+
+**用AI创造无限可能 ✨**
+
+Made with ❤️ by 渲染AI Team
+
+</div>
