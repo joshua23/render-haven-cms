@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Send, Image, Smile, MoreVertical, Phone, Video, Heart } from 'lucide-react';
 
 interface Message {
@@ -17,6 +17,10 @@ interface Character {
 }
 
 export default function ChatPage() {
+  useEffect(() => {
+    document.title = '聊天消息 - 渲染AI';
+  }, []);
+
   const [selectedChat, setSelectedChat] = useState<string>('1');
   const [messageInput, setMessageInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([

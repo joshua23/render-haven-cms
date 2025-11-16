@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Image as ImageIcon, Wand2, Download, RefreshCw, Sparkles } from 'lucide-react';
 import { useNSFW } from '../contexts/NSFWContext';
 
 export default function XuanranImageGenerator() {
   const { isNSFW } = useNSFW();
+
+  useEffect(() => {
+    document.title = 'AI图像生成 - 渲染AI';
+  }, []);
   const [prompt, setPrompt] = useState('');
   const [selectedCharacter, setSelectedCharacter] = useState('');
   const [style, setStyle] = useState('realistic');

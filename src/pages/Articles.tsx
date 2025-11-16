@@ -1,6 +1,11 @@
+import { useEffect } from 'react';
 import { ArticleCard } from "@/components/ArticleCard";
 
 const Articles = () => {
+  useEffect(() => {
+    document.title = '博客文章 - 渲染AI';
+  }, []);
+
   const articles = [
     {
       id: 1,

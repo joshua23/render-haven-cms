@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Sparkles, Image, MessageCircle, Wand2, Lock, Zap, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useNSFW } from '../contexts/NSFWContext';
@@ -6,6 +7,10 @@ import { Button } from "@/components/ui/button";
 
 export default function IntegratedHome() {
   const { isNSFW } = useNSFW();
+
+  useEffect(() => {
+    document.title = '渲染AI - AI伴侣创作与智能图像处理平台';
+  }, []);
 
   return (
     <div className="min-h-screen bg-black">

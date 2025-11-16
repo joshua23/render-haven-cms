@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Target, Lightbulb, Rocket, Building2 } from "lucide-react";
 
 const About = () => {
+  useEffect(() => {
+    document.title = '关于我们 - 渲染AI';
+  }, []);
+
   return (
     <div className="min-h-screen bg-black pt-32 pb-20">
       <main className="container mx-auto px-6">

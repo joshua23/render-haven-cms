@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Sparkles, Image as ImageIcon, User, Heart, Zap } from 'lucide-react';
 import { useNSFW } from '../contexts/NSFWContext';
 
 export default function CreateCharacter() {
   const { isNSFW } = useNSFW();
+
+  useEffect(() => {
+    document.title = '创建角色 - 渲染AI';
+  }, []);
   const [characterType, setCharacterType] = useState<'female' | 'male' | 'anime'>('female');
   const [formData, setFormData] = useState({
     name: '',
