@@ -104,16 +104,16 @@ export default function IntegratedHome() {
               {/* 装饰性光效 */}
               <div className="absolute -bottom-4 -right-4 w-72 h-72 bg-neon-green/20 rounded-full blur-3xl"></div>
               <div className="absolute -top-4 -left-4 w-48 h-48 bg-neon-green/10 rounded-full blur-2xl"></div>
-            </div>
-          </div>
 
-          {/* 打字机效果文字 - 小染介绍 */}
-          <div className="mt-20 max-w-4xl mx-auto">
-            <div className="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-neon-green/20 shadow-[0_0_30px_rgba(0,255,65,0.15)]">
-              <pre className="text-neon-green font-mono text-base md:text-lg leading-relaxed whitespace-pre-wrap">
-                {displayedText}
-                <span className="animate-pulse">|</span>
-              </pre>
+              {/* 打字机效果文字 - 小染介绍 */}
+              <div className="mt-8">
+                <div className="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-neon-green/20 shadow-[0_0_30px_rgba(0,255,65,0.15)]">
+                  <pre className="text-neon-green font-mono text-base md:text-lg leading-relaxed whitespace-pre-wrap">
+                    {displayedText}
+                    <span className="animate-pulse">|</span>
+                  </pre>
+                </div>
+              </div>
             </div>
           </div>
         </div>
