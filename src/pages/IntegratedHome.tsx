@@ -12,7 +12,7 @@ export default function IntegratedHome() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const fullText = `小染来了。
-24岁，蓝发，破洞牛仔裤，格罗克小队的叛逆者。
+24岁，蓝发，破洞牛仔裤，渲染AI小队的叛逆者。
 她不讲大道理，只给你能用的。
 三件事她最擅长：
 
