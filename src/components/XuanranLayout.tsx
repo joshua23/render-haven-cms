@@ -173,54 +173,60 @@ export default function XuanranLayout() {
         <Outlet />
       </main>
 
-      {isHomePage && (
-        <footer className="border-t border-neutral-900 py-16 px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-4 gap-16 mb-16">
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <img src="/启动页.png" alt="渲染AI" className="w-10 h-10 rounded-lg drop-shadow-neon" />
-                  <span className="text-white text-xl font-black tracking-tight">渲染AI</span>
-                </div>
-                <p className="text-neutral-500 text-sm leading-relaxed font-light">
-                  创造你的完美AI伴侣,具备先进的定制和对话能力。
-                </p>
+      <footer className="border-t border-neutral-900 py-16 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-16 mb-16">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <img src="/启动页.png" alt="渲染AI" className="w-10 h-10 rounded-lg drop-shadow-neon" />
+                <span className="text-white text-xl font-black tracking-tight">渲染AI</span>
               </div>
-
-              <div>
-                <h4 className="text-white font-black mb-6 tracking-wide uppercase text-sm">产品</h4>
-                <ul className="space-y-3 text-neutral-500 text-sm font-light">
-                  <li><Link to="/create" className="hover:text-neon-green transition-colors">功能特性</Link></li>
-                  <li><Link to="/pricing" className="hover:text-neon-green transition-colors">价格</Link></li>
-                  <li><a href="#" className="hover:text-neon-green transition-colors">常见问题</a></li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-white font-black mb-6 tracking-wide uppercase text-sm">公司</h4>
-                <ul className="space-y-3 text-neutral-500 text-sm font-light">
-                  <li><Link to="/about" className="hover:text-neon-green transition-colors">关于我们</Link></li>
-                  <li><Link to="/articles" className="hover:text-neon-green transition-colors">博客</Link></li>
-                  <li><a href="#" className="hover:text-neon-green transition-colors">联系我们</a></li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-white font-black mb-6 tracking-wide uppercase text-sm">法律</h4>
-                <ul className="space-y-3 text-neutral-500 text-sm font-light">
-                  <li><a href="#" className="hover:text-neon-green transition-colors">隐私政策</a></li>
-                  <li><a href="#" className="hover:text-neon-green transition-colors">服务条款</a></li>
-                  <li><a href="#" className="hover:text-neon-green transition-colors">使用指南</a></li>
-                </ul>
-              </div>
+              <p className="text-neutral-500 text-sm leading-relaxed font-light">
+                创造你的完美AI伴侣,具备先进的定制和对话能力。
+              </p>
             </div>
 
-            <div className="pt-8 border-t border-neutral-900 text-center text-neutral-600 text-sm font-light">
-              <p>&copy; 2024 渲染AI. 版权所有</p>
+            <div>
+              <h4 className="text-white font-black mb-6 tracking-wide uppercase text-sm">产品</h4>
+              <ul className="space-y-3 text-neutral-500 text-sm font-light">
+                <li><Link to="/create" className="hover:text-neon-green transition-colors">功能特性</Link></li>
+                <li><Link to="/pricing" className="hover:text-neon-green transition-colors">价格</Link></li>
+                <li><a href="#" className="hover:text-neon-green transition-colors">常见问题</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-black mb-6 tracking-wide uppercase text-sm">公司</h4>
+              <ul className="space-y-3 text-neutral-500 text-sm font-light">
+                <li><Link to="/about" className="hover:text-neon-green transition-colors">关于我们</Link></li>
+                <li><Link to="/articles" className="hover:text-neon-green transition-colors">博客</Link></li>
+                <li><a href="#" className="hover:text-neon-green transition-colors">联系我们</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-black mb-6 tracking-wide uppercase text-sm">法律</h4>
+              <ul className="space-y-3 text-neutral-500 text-sm font-light">
+                <li><a href="#" className="hover:text-neon-green transition-colors">隐私政策</a></li>
+                <li><a href="#" className="hover:text-neon-green transition-colors">服务条款</a></li>
+                <li><a href="#" className="hover:text-neon-green transition-colors">使用指南</a></li>
+              </ul>
             </div>
           </div>
-        </footer>
-      )}
+
+          <div className="pt-8 border-t border-neutral-900 text-center text-neutral-600 text-sm font-light">
+            <p>&copy; 2024 渲染AI. 版权所有</p>
+            <a 
+              href="https://beian.miit.gov.cn/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-neon-green transition-colors mt-2 inline-block"
+            >
+              沪ICP备2025149173号-1
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
