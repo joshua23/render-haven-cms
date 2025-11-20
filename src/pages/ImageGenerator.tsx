@@ -8,7 +8,11 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2, Upload, Image as ImageIcon } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { apiUpload, apiPost } from '@/services/apiClient';
+
+// 开发环境使用本地地址，其他环境使用生产地址
+const API_BASE_URL = import.meta.env.DEV 
+  ? 'http://localhost:5282' 
+  : 'https://xr-webapi.xrpic.com';
 
 interface UploadResponse {
   success: boolean;
@@ -117,10 +121,16 @@ const ImageGenerator = () => {
         // 更新进度
         setUploadProgress(Math.round((i / totalFiles) * 90));
 
-        const data: UploadResponse = await apiUpload<UploadResponse>(
-          '/api/oss/upload',
-          formData
-        );
+        const response = await fetch(`${API_BASE_URL}/api/oss/upload`, {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error(`上传失败: ${response.statusText}`);
+        }
+
+        const data: UploadResponse = await response.json();
 
         if (data.success && data.data?.url) {
           uploadedUrls.push(data.data.url);
@@ -157,12 +167,21 @@ const ImageGenerator = () => {
     setIsGenerating(true);
 
     try {
-      const data: GenerateResponse = await apiPost<GenerateResponse>(
-        '/api/CompositeImage/generate-and-beautify',
-        {
+      const response = await fetch(`${API_BASE_URL}/api/CompositeImage/generate-and-beautify`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
           imageUrls: imageUrls,
-        }
-      );
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`生成失败: ${response.statusText}`);
+      }
+
+      const data: GenerateResponse = await response.json();
 
       if (data.success && data.data?.imageUrl) {
         setGeneratedImageUrl(data.data.imageUrl);
