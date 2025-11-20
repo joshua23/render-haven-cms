@@ -11,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 export const Header = () => {
   const { isAuthenticated, user, logout } = useAuth();
@@ -26,19 +27,19 @@ export const Header = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
-            <img 
-              src={logo} 
-              alt="渲染AI" 
+            <img
+              src={logo}
+              alt="渲染AI"
               className="h-10 w-10 transition-transform duration-300 group-hover:scale-110"
             />
             <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               渲染AI
             </span>
           </Link>
-          
+
           <div className="flex items-center gap-8">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
               首页
@@ -49,8 +50,8 @@ export const Header = () => {
             >
               博客
             </Link>
-            <Link 
-              to="/about" 
+            <Link
+              to="/about"
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
               关于
@@ -88,6 +89,8 @@ export const Header = () => {
                 <span>登录</span>
               </Button>
             )}
+            
+            <ThemeSwitcher />
           </div>
         </div>
       </nav>
