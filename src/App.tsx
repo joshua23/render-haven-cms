@@ -22,6 +22,7 @@ import NotFound from "./pages/NotFound";
 import ImageGenerator from "./pages/ImageGenerator";
 import TextToSpeech from "./pages/TextToSpeech";
 import IdPhoto from "./pages/IdPhoto";
+import PhotoGeneration from "./pages/PhotoGeneration";
 import Login from "./pages/Login";
 import XuanranLayout from "./components/XuanranLayout";
 import XuanranHome from "./pages/XuanranHome";
@@ -75,6 +76,7 @@ const App = () => (
                   <Route path="/image-generator" element={<ImageGenerator />} />
                   <Route path="/text-to-speech" element={<TextToSpeech />} />
                   <Route path="/id-photo" element={<IdPhoto />} />
+                  <Route path="/photo-generation" element={<PhotoGeneration />} />
 
                   {/* Catch-all route */}
                   <Route path="*" element={<NotFound />} />
