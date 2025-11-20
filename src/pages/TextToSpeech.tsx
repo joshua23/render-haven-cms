@@ -8,11 +8,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2, Volume2, Download, Play, Pause } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-
-// 开发环境使用本地地址，其他环境使用生产地址
-const API_BASE_URL = import.meta.env.DEV 
-  ? 'http://localhost:5282' 
-  : 'https://xr-webapi.xrpic.com';
+import { apiGet, apiRequest } from '@/services/apiClient';
 
 interface Voice {
   id: string;
@@ -80,8 +76,9 @@ const TextToSpeech = () => {
   const fetchModels = async () => {
     setIsLoadingModels(true);
     try {
-      const response = await fetch(`${API_BASE_URL}/api/TextToSpeech/models`);
-      const result = await response.json();
+      const result = await apiGet<{ success: boolean; data?: Model[]; message?: string }>(
+        '/api/TextToSpeech/models'
+      );
       
       if (result.success && result.data) {
         setModels(result.data);
@@ -99,7 +96,7 @@ const TextToSpeech = () => {
     } catch (error) {
       toast({
         title: '请求失败',
-        description: '无法连接到服务器，请检查网络连接',
+        description: error instanceof Error ? error.message : '无法连接到服务器，请检查网络连接',
         variant: 'destructive',
       });
       console.error('Failed to fetch models:', error);
@@ -111,8 +108,9 @@ const TextToSpeech = () => {
   const fetchVoices = async () => {
     setIsLoadingVoices(true);
     try {
-      const response = await fetch(`${API_BASE_URL}/api/TextToSpeech/voices`);
-      const result = await response.json();
+      const result = await apiGet<{ success: boolean; data?: Voice[]; message?: string }>(
+        '/api/TextToSpeech/voices'
+      );
       
       if (result.success && result.data) {
         setVoices(result.data);
@@ -130,7 +128,7 @@ const TextToSpeech = () => {
     } catch (error) {
       toast({
         title: '请求失败',
-        description: '无法连接到服务器，请检查网络连接',
+        description: error instanceof Error ? error.message : '无法连接到服务器，请检查网络连接',
         variant: 'destructive',
       });
       console.error('Failed to fetch voices:', error);
@@ -193,10 +191,15 @@ const TextToSpeech = () => {
     setAudioUrl('');
 
     try {
+      // 对于返回blob的请求，使用apiRequest并指定responseType
+      const API_BASE_URL = 'https://xr-webapi.xrpic.com';
+      
+      const token = localStorage.getItem('xr_access_token');
       const response = await fetch(`${API_BASE_URL}/api/TextToSpeech/convert`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          ...(token && { 'Authorization': `Bearer ${token}` }),
         },
         body: JSON.stringify({
           text: text,

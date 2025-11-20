@@ -1,10 +1,28 @@
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useNSFW } from '../contexts/NSFWContext';
+import { useAuth } from '../contexts/AuthContext';
+import { Button } from '@/components/ui/button';
+import { LogOut, LogIn, User } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export default function XuanranLayout() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
   const { isNSFW, toggleNSFW } = useNSFW();
+  const { isAuthenticated, user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <div className="min-h-screen bg-black">
@@ -106,6 +124,41 @@ export default function XuanranLayout() {
             >
               {isNSFW ? 'NSFW' : 'SFW'}
             </button>
+
+            {isAuthenticated ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button className="px-6 py-2 rounded-full font-bold tracking-wide transition-all border-2 bg-transparent border-neutral-700 text-neutral-400 hover:border-neutral-600 flex items-center gap-2">
+                    <User className="h-4 w-4" />
+                    <span>{user?.displayName || user?.username}</span>
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="bg-neutral-900 border-neutral-800">
+                  <DropdownMenuLabel className="text-white">
+                    <div className="flex flex-col space-y-1">
+                      <p className="text-sm font-medium">{user?.displayName || user?.username}</p>
+                      <p className="text-xs text-neutral-400">{user?.email}</p>
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator className="bg-neutral-800" />
+                  <DropdownMenuItem 
+                    onClick={handleLogout}
+                    className="text-neutral-300 hover:text-white hover:bg-neutral-800 cursor-pointer"
+                  >
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>登出</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <button 
+                onClick={() => navigate('/login')}
+                className="px-6 py-2 rounded-full font-bold tracking-wide transition-all border-2 bg-transparent border-neutral-700 text-neutral-400 hover:border-neutral-600 flex items-center gap-2"
+              >
+                <LogIn className="h-4 w-4" />
+                <span>登录</span>
+              </button>
+            )}
 
             <Link to="/create">
               <button className="px-8 py-3 bg-neon-green hover:brightness-110 text-black font-bold tracking-wide transition-all shadow-neon">
