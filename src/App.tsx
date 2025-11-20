@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NSFWProvider } from "./contexts/NSFWContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import Index from "./pages/Index";
 import Articles from "./pages/Articles";
 import ArticleDetail from "./pages/ArticleDetail";
@@ -32,15 +33,16 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <NSFWProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            {/* All routes use XuanranLayout as the main layout */}
-            <Route element={<XuanranLayout />}>
-              <Route index element={<IntegratedHome />} />
+    <ThemeProvider>
+      <NSFWProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              {/* All routes use XuanranLayout as the main layout */}
+              <Route element={<XuanranLayout />}>
+                <Route index element={<IntegratedHome />} />
 
               {/* AI Companion Features */}
               <Route path="/create" element={<CreateCharacter />} />
@@ -73,6 +75,7 @@ const App = () => (
         </BrowserRouter>
       </TooltipProvider>
     </NSFWProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 
