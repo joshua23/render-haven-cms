@@ -19,6 +19,7 @@ interface Template {
   previewUrl: string;
   category: string;
   isEnabled?: boolean;
+  is_enabled?: boolean;
 }
 
 interface TemplatesResponse {
@@ -363,7 +364,7 @@ const PhotoGeneration = () => {
       setTemplates((prev) =>
         prev.map((item) =>
           (item.id || item.template_id || item.templateId || item.templateCode) === templateUniqueId
-            ? { ...item, isEnabled: updatedState }
+            ? { ...item, isEnabled: updatedState, is_enabled: updatedState }
             : item
         )
       );
@@ -376,6 +377,7 @@ const PhotoGeneration = () => {
         setSelectedTemplate({
           ...selectedTemplate,
           isEnabled: updatedState,
+          is_enabled: updatedState,
         });
       }
 
@@ -494,17 +496,17 @@ const PhotoGeneration = () => {
                         </div>
                         <div className="mt-3 space-y-2">
                           <div className="text-xs text-neutral-400">
-                            当前状态：{template.isEnabled ? '已启用' : '已禁用'}
+                            当前状态：{template.is_enabled ? '已启用' : '已禁用'}
                           </div>
                           <div className="flex gap-2">
                             <Button
                               variant="secondary"
                               size="sm"
-                              disabled={isTemplateUpdating || template.isEnabled === true}
+                              disabled={isTemplateUpdating || template.is_enabled === true}
                               onClick={(event) => handleTemplateStatusChange(template, true, event)}
                               className="flex-1 bg-neutral-700 text-neutral-100 hover:bg-neutral-600 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                              {isTemplateUpdating && template.isEnabled !== true ? (
+                              {isTemplateUpdating && template.is_enabled !== true ? (
                                 <Loader2 className="h-4 w-4 animate-spin" />
                               ) : (
                                 '启用模板'
@@ -513,11 +515,11 @@ const PhotoGeneration = () => {
                             <Button
                               variant="secondary"
                               size="sm"
-                              disabled={isTemplateUpdating || template.isEnabled === false}
+                              disabled={isTemplateUpdating || template.is_enabled === false}
                               onClick={(event) => handleTemplateStatusChange(template, false, event)}
                               className="flex-1 border border-neutral-600 bg-transparent text-neutral-200 hover:bg-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                              {isTemplateUpdating && template.isEnabled !== false ? (
+                              {isTemplateUpdating && template.is_enabled !== false ? (
                                 <Loader2 className="h-4 w-4 animate-spin" />
                               ) : (
                                 '禁用模板'
