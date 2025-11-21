@@ -2,7 +2,7 @@ import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useNSFW } from '../contexts/NSFWContext';
 import { useAuth } from '../contexts/AuthContext';
 import { Button } from '@/components/ui/button';
-import { LogOut, LogIn, User } from 'lucide-react';
+import { LogOut, LogIn, User, Play, ChevronDown, Palette, Image as ImageIcon, Camera } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -159,6 +159,62 @@ export default function XuanranLayout() {
                 <span>登录</span>
               </button>
             )}
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  className={`${
+                    ['/style-transfer', '/photo-generation', '/id-photo'].includes(location.pathname)
+                      ? 'text-neon-green'
+                      : 'text-neutral-400 hover:text-neon-green'
+                  } transition-colors font-medium tracking-wide flex items-center gap-1`}
+                >
+                  <span>PG</span>
+                  <ChevronDown className="h-3 w-3" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-neutral-900 border-neutral-800">
+                <DropdownMenuItem
+                  asChild
+                  className={`${
+                    location.pathname === '/style-transfer'
+                      ? 'text-neon-green bg-neutral-800'
+                      : 'text-neutral-300 hover:text-white hover:bg-neutral-800'
+                  } cursor-pointer`}
+                >
+                  <Link to="/style-transfer" className="flex items-center gap-2">
+                    <Palette className="h-4 w-4" />
+                    <span>风格转换</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  asChild
+                  className={`${
+                    location.pathname === '/photo-generation'
+                      ? 'text-neon-green bg-neutral-800'
+                      : 'text-neutral-300 hover:text-white hover:bg-neutral-800'
+                  } cursor-pointer`}
+                >
+                  <Link to="/photo-generation" className="flex items-center gap-2">
+                    <ImageIcon className="h-4 w-4" />
+                    <span>写真生成</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  asChild
+                  className={`${
+                    location.pathname === '/id-photo'
+                      ? 'text-neon-green bg-neutral-800'
+                      : 'text-neutral-300 hover:text-white hover:bg-neutral-800'
+                  } cursor-pointer`}
+                >
+                  <Link to="/id-photo" className="flex items-center gap-2">
+                    <Camera className="h-4 w-4" />
+                    <span>证件照</span>
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <Link to="/create">
               <button className="px-8 py-3 bg-neon-green hover:brightness-110 text-black font-bold tracking-wide transition-all shadow-neon">
