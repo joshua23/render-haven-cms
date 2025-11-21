@@ -170,7 +170,7 @@ uniform float u_time;
 uniform sampler2D u_imageOld; // 原图 (Before)
 uniform sampler2D u_imageNew; // 高清图 (After)
 uniform sampler2D u_noise;
-uniform float u_inkWidth; // 水墨边缘宽度
+uniform float u_inkWidth; // 保留参数兼容性
 uniform float u_glassHighlight; // 玻璃高光强度
 
 varying vec2 v_texCoord;
@@ -178,66 +178,31 @@ varying vec2 v_texCoord;
 void main() {
   vec2 uv = v_texCoord;
 
-  // 1. 读取噪声，制造水墨边缘的随机感
-  vec2 noiseUV = uv * 2.5 + vec2(0.0, u_time * 0.03);
-  float noiseVal = texture2D(u_noise, noiseUV).r;
+  // 1. 直线分割 - 简洁清晰
+  float edgeSoftness = 0.002;
+  float mask = smoothstep(u_sliderPos - edgeSoftness, u_sliderPos + edgeSoftness, uv.x);
 
-  // 第二层噪声增加复杂度
-  vec2 noiseUV2 = uv * 4.0 + vec2(u_time * 0.02, 0.0);
-  float noiseVal2 = texture2D(u_noise, noiseUV2).r;
-
-  // 组合噪声
-  float combinedNoise = noiseVal * 0.7 + noiseVal2 * 0.3;
-
-  // 2. 计算不规则的分割线
-  float disturbance = (combinedNoise - 0.5) * u_inkWidth;
-  float divideLine = uv.x + disturbance;
-
-  // 3. 软边缘遮罩（不是硬切割）
-  float edgeSoftness = 0.008;
-  float mask = smoothstep(u_sliderPos - edgeSoftness, u_sliderPos + edgeSoftness, divideLine);
-
-  // 4. 获取两张图片的颜色
+  // 2. 获取两张图片的颜色
   vec4 oldColor = texture2D(u_imageOld, uv);
   vec4 newColor = texture2D(u_imageNew, uv);
 
-  // 5. 混合图片 - 左边是新图，右边是旧图
+  // 3. 混合图片 - 左边是新图，右边是旧图
   vec4 finalColor = mix(newColor, oldColor, mask);
 
-  // 6. 液态玻璃高光 - 在分割线附近
-  float dist = abs(divideLine - u_sliderPos);
+  // 4. 液态玻璃高光 - 在分割线附近
+  float dist = abs(uv.x - u_sliderPos);
 
   // 主高光
-  float highlight = smoothstep(0.025, 0.0, dist) * u_glassHighlight;
+  float highlight = smoothstep(0.015, 0.0, dist) * u_glassHighlight;
 
   // 二次高光（更细的线）
-  float highlight2 = smoothstep(0.008, 0.0, dist) * 0.3;
+  float highlight2 = smoothstep(0.004, 0.0, dist) * 0.5;
 
   // 高光颜色 - 冷白色
-  vec3 highlightColor = vec3(0.9, 0.95, 1.0);
+  vec3 highlightColor = vec3(0.95, 0.98, 1.0);
 
-  // 7. 水墨晕染效果 - 在边缘添加墨韵
-  float inkBleed = smoothstep(0.05, 0.0, dist) * (combinedNoise * 0.3);
-  vec3 inkColor = vec3(0.0, 0.0, 0.0);
-
-  // 8. 折射效果 - 轻微的 UV 偏移
-  float refraction = highlight * 0.003;
-  vec2 refractedUV = uv + vec2(refraction * (noiseVal - 0.5), 0.0);
-
-  // 在高光区域应用折射
-  vec4 refractedOld = texture2D(u_imageOld, refractedUV);
-  vec4 refractedNew = texture2D(u_imageNew, refractedUV);
-  vec4 refractedColor = mix(refractedNew, refractedOld, mask);
-
-  finalColor = mix(finalColor, refractedColor, highlight * 0.5);
-
-  // 9. 叠加效果
-  finalColor.rgb = mix(finalColor.rgb, inkColor, inkBleed);
+  // 5. 叠加高光效果
   finalColor.rgb += highlightColor * (highlight + highlight2);
-
-  // 10. 边缘氛围光（微妙的环境反射）
-  float ambientGlow = smoothstep(0.1, 0.0, dist) * 0.05;
-  finalColor.rgb += vec3(0.0, 0.2, 0.4) * ambientGlow * (1.0 - combinedNoise);
 
   gl_FragColor = finalColor;
 }
