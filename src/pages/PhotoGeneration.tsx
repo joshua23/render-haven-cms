@@ -6,20 +6,32 @@ import { Progress } from '@/components/ui/progress';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Upload, Image as ImageIcon, Download, RefreshCw, Sparkles } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
-import { apiUpload, apiGet } from '@/services/apiClient';
+import { apiUpload, apiGet, apiPost } from '@/services/apiClient';
 import { getToken } from '@/services/authService';
 
 interface Template {
+  id?: string;
+  template_id?: string;
+  templateId?: string;
   templateCode: string;
   templateName: string;
   description: string;
   previewUrl: string;
   category: string;
+  isEnabled?: boolean;
 }
 
 interface TemplatesResponse {
   success: boolean;
   data: Template[];
+}
+
+interface TemplateStatusUpdateResponse {
+  success: boolean;
+  data?: {
+    id: string;
+    isEnabled: boolean;
+  };
 }
 
 interface TaskCreateResponse {
@@ -61,6 +73,7 @@ const PhotoGeneration = () => {
   const [taskStatus, setTaskStatus] = useState<TaskStatusResponse | null>(null);
   const [isPolling, setIsPolling] = useState(false);
   const [outputImageUrl, setOutputImageUrl] = useState<string>('');
+  const [templateStatusLoading, setTemplateStatusLoading] = useState<string | null>(null);
 
   // 获取模板列表
   useEffect(() => {
@@ -290,6 +303,98 @@ const PhotoGeneration = () => {
     }
   };
 
+  const handleTemplateStatusChange = async (
+    template: Template,
+    nextState: boolean,
+    event?: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event?.stopPropagation();
+
+    if (!user?.id) {
+      toast({
+        title: '未登录',
+        description: '请先登录后再管理模板状态',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    const templateUniqueId =
+      template.id || template.template_id || template.templateId || template.templateCode;
+    if (!templateUniqueId) {
+      toast({
+        title: '无法识别模板',
+        description: '模板缺少唯一标识，无法更新状态',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    const token = getToken();
+    if (!token) {
+      toast({
+        title: '认证失败',
+        description: '未找到认证 token，请先登录',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    try {
+      setTemplateStatusLoading(templateUniqueId);
+
+      const response = await apiPost<TemplateStatusUpdateResponse>(
+        '/api/Task/photo-templates/status',
+        {
+          templateId: templateUniqueId,
+          isEnabled: nextState,
+        },
+        {
+          requireAuth: true,
+          headers: {
+            accept: '*/*',
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      const updatedState = response.data?.isEnabled ?? nextState;
+
+      setTemplates((prev) =>
+        prev.map((item) =>
+          (item.id || item.template_id || item.templateId || item.templateCode) === templateUniqueId
+            ? { ...item, isEnabled: updatedState }
+            : item
+        )
+      );
+
+      if (
+        selectedTemplate &&
+        (selectedTemplate.id || selectedTemplate.template_id || selectedTemplate.templateId || selectedTemplate.templateCode) ===
+          templateUniqueId
+      ) {
+        setSelectedTemplate({
+          ...selectedTemplate,
+          isEnabled: updatedState,
+        });
+      }
+
+      toast({
+        title: updatedState ? '模板已启用' : '模板已禁用',
+        description: `${template.templateName} 已${updatedState ? '启用' : '禁用'}`,
+      });
+    } catch (error) {
+      console.error('Failed to update template status:', error);
+      toast({
+        title: '操作失败',
+        description: error instanceof Error ? error.message : '无法更新模板状态，请稍后再试',
+        variant: 'destructive',
+      });
+    } finally {
+      setTemplateStatusLoading(null);
+    }
+  };
+
   const handleDownload = () => {
     if (!outputImageUrl) return;
 
@@ -349,8 +454,12 @@ const PhotoGeneration = () => {
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {templates.map((template) => (
-                    <div
+                  {templates.map((template) => {
+                    const templateUniqueId =
+                      template.id || template.template_id || template.templateId || template.templateCode;
+                    const isTemplateUpdating = templateStatusLoading === templateUniqueId;
+                    return (
+                      <div
                       key={template.templateCode}
                       onClick={() => setSelectedTemplate(template)}
                       className={`relative cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
@@ -383,9 +492,43 @@ const PhotoGeneration = () => {
                             {template.category}
                           </span>
                         </div>
+                        <div className="mt-3 space-y-2">
+                          <div className="text-xs text-neutral-400">
+                            当前状态：{template.isEnabled ? '已启用' : '已禁用'}
+                          </div>
+                          <div className="flex gap-2">
+                            <Button
+                              variant="secondary"
+                              size="sm"
+                              disabled={isTemplateUpdating || template.isEnabled === true}
+                              onClick={(event) => handleTemplateStatusChange(template, true, event)}
+                              className="flex-1 bg-neutral-700 text-neutral-100 hover:bg-neutral-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                              {isTemplateUpdating && template.isEnabled !== true ? (
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                              ) : (
+                                '启用模板'
+                              )}
+                            </Button>
+                            <Button
+                              variant="secondary"
+                              size="sm"
+                              disabled={isTemplateUpdating || template.isEnabled === false}
+                              onClick={(event) => handleTemplateStatusChange(template, false, event)}
+                              className="flex-1 border border-neutral-600 bg-transparent text-neutral-200 hover:bg-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                              {isTemplateUpdating && template.isEnabled !== false ? (
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                              ) : (
+                                '禁用模板'
+                              )}
+                            </Button>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </CardContent>
