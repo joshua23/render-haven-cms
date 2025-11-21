@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -61,6 +62,7 @@ interface TaskStatusResponse {
 const PhotoGeneration = () => {
   const { user } = useAuth();
   const { toast } = useToast();
+  const navigate = useNavigate();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -524,6 +526,14 @@ const PhotoGeneration = () => {
                               ) : (
                                 '禁用模板'
                               )}
+                            </Button>
+                            <Button
+                              variant="secondary"
+                              size="sm"
+                              onClick={(e) => { e.stopPropagation(); navigate(`/photo-templates/${template.templateCode}/tasks`); }}
+                              className="flex-1 bg-neon-green text-black hover:bg-neon-green/90"
+                            >
+                              进入详情
                             </Button>
                           </div>
                         </div>

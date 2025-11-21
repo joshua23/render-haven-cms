@@ -23,6 +23,7 @@ import ImageGenerator from "./pages/ImageGenerator";
 import TextToSpeech from "./pages/TextToSpeech";
 import IdPhoto from "./pages/IdPhoto";
 import PhotoGeneration from "./pages/PhotoGeneration";
+import PhotoTemplateTasks from "./pages/PhotoTemplateTasks";
 import StyleTransfer from "./pages/StyleTransfer";
 import Login from "./pages/Login";
 import XuanranLayout from "./components/XuanranLayout";
@@ -78,6 +79,7 @@ const App = () => (
                   <Route path="/text-to-speech" element={<TextToSpeech />} />
                   <Route path="/id-photo" element={<IdPhoto />} />
                   <Route path="/photo-generation" element={<PhotoGeneration />} />
+                  <Route path="/photo-templates/:templateCode/tasks" element={<PhotoTemplateTasks />} />
                   <Route path="/style-transfer" element={<StyleTransfer />} />
 
                   {/* Catch-all route */}
