@@ -34,6 +34,7 @@ import XuanranImageGenerator from "./pages/XuanranImageGenerator";
 import Roleplay from "./pages/Roleplay";
 import ChatPage from "./pages/ChatPage";
 import Pricing from "./pages/Pricing";
+import FakeRenderingPage from "./pages/FakeRenderingPage";
 
 const queryClient = new QueryClient();
 
@@ -81,6 +82,7 @@ const App = () => (
                   <Route path="/photo-generation" element={<PhotoGeneration />} />
                   <Route path="/photo-templates/:templateCode/tasks" element={<PhotoTemplateTasks />} />
                   <Route path="/style-transfer" element={<StyleTransfer />} />
+                  <Route path="/fake-rendering" element={<FakeRenderingPage />} />
 
                   {/* Catch-all route */}
                   <Route path="*" element={<NotFound />} />
